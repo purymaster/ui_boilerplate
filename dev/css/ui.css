@@ -370,6 +370,18 @@ caption,
 	font-weight: 500;
 }
 
+@media (max-width: 1024px) {
+	[data-column-box] {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 599px) {
+	[data-column-box] {
+		font-size: 12px;
+	}
+}
+
 /* 리스트 */
 [data-list] {
 	text-align: left;
@@ -534,7 +546,7 @@ caption,
 
 [data-table] table th,
 [data-table] table td {
-	height: 60px;
+	height: 50px;
 	line-height: 1.5em;
 	padding: 0.5em;
 	border-bottom: 1px solid var(--secondary-color);
@@ -651,7 +663,6 @@ caption,
 	[data-table] table td {
 		height: 40px;
 		padding: 0.25em;
-		font-size: 14px;
 	}
 }
 
@@ -661,8 +672,150 @@ caption,
 	[data-table] table td {
 		height: 30px;
 		padding: 0.25em 0.125em;
-		font-size: 12px;
 	}
+}
+
+/* 게시판 리스트 */
+[data-board-table] th,
+[data-board-table] td {
+	border-bottom: 1px solid var(--secondary-color);
+	vertical-align: middle;
+	padding: 0.25em 0.5em;
+}
+
+[data-board-table] .center th,
+[data-board-table] .center td {
+	text-align: center;
+	height: 50px;
+}
+
+[data-board-table] th.left,
+[data-board-table] td.left {
+	text-align: left;
+}
+
+[data-board-table] th.right,
+[data-board-table] td.right {
+	text-align: right;
+}
+
+[data-board-table] thead th {
+	border-top: 3px solid var(--point-color);
+	font-weight: 700;
+}
+
+[data-board-table] [data-type="title"] a {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	max-width: 100%;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 5px;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+[data-board-table] [data-type="title"] a:hover,
+[data-board-table] [data-type="title"] a:focus {
+	color: var(--point-color);
+}
+
+[data-board-table] [data-type="title"] .tag {
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	background: var(--point-color);
+	color: #fff;
+	font-size: 0.75em;
+	padding: 0.25em 0.5em;
+	border-radius: 3px;
+}
+
+[data-board-table] [data-type="title"] .tit {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+[data-board-table] [data-type="title"] .icon {
+	width: 1em;
+	height: 1em;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+
+	[data-board-table] table,
+	[data-board-table] thead,
+	[data-board-table] tbody,
+	[data-board-table] tr,
+	[data-board-table] th,
+	[data-board-table] td {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		text-align: left !important;
+		height: auto !important;
+	}
+
+	[data-board-table] table {
+		border-top: 3px solid var(--point-color);
+	}
+
+	[data-board-table] thead {
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		border: 0;
+	}
+
+	[data-board-table] table {
+		border-top: 3px solid var(--point-color);
+	}
+
+	[data-board-table] tr {
+		border-bottom: 1px solid var(--secondary-color);
+		gap: 0.5em;
+		padding: 0.5em 0;
+	}
+
+	[data-board-table] th,
+	[data-board-table] td {
+		padding: 0;
+	}
+
+	[data-board-table] td {
+		border: 0;
+	}
+
+	[data-board-table] [data-type="title"] a {
+		display: inline;
+	}
+
+	[data-board-table] [data-type="title"] .tit {
+		display: inline;
+		overflow: visible;
+		text-overflow: clip;
+		white-space: normal;
+	}
+
+	/* [data-board-table] [data-type="num"]:before {
+		content: "번호";
+	}
+
+	[data-board-table] [data-type="title"]:before {
+		content: "제목";
+	} */
 }
 
 /* 모달 */
@@ -697,6 +850,7 @@ caption,
 	width: 1160px;
 	max-width: calc(100vw - 30px);
 	max-height: calc(100vh - 30px);
+	max-height: calc(100dvh - 30px);
 	padding: 50px;
 	background: #fff;
 	font-size: 16px;
@@ -772,6 +926,7 @@ caption,
 @media (max-width: 1024px) {
 	[data-modal] .modal {
 		max-height: calc(100vh - 60px);
+		max-height: calc(100dvh - 60px);
 		padding: 30px;
 		font-size: 14px;
 	}
@@ -785,6 +940,7 @@ caption,
 @media (max-width: 599px) {
 	[data-modal] .modal {
 		max-height: calc(100vh - 120px);
+		max-height: calc(100dvh - 120px);
 		padding: 15px;
 		padding-top: 30px;
 		font-size: 12px;
