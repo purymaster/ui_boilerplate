@@ -1,0 +1,100 @@
+[
+	{
+		"depth1": "content",
+		"depth2": "tab",
+		"depth3": "",
+		"id": "tab_menu",
+		"memo": "탭메뉴"
+	},
+	{
+		"depth1": "",
+		"depth2": "text_list",
+		"depth3": "",
+		"id": "text_list",
+		"memo": "목차 리스트"
+	},
+	{
+		"depth1": "",
+		"depth2": "table",
+		"depth3": "data_table",
+		"id": "data_table",
+		"memo": "data 나열 테이블"
+	},
+	{
+		"depth1": "",
+		"depth2": "board",
+		"depth3": "list(table)",
+		"id": "board_table",
+		"memo": "게시판 리스트"
+	},
+	{
+		"depth1": "",
+		"depth2": "",
+		"depth3": "list(gallery)",
+		"id": "board_gallery",
+		"memo": "갤러리 리스트"
+	},
+	{
+		"depth1": "",
+		"depth2": "",
+		"depth3": "view",
+		"id": "board_view",
+		"memo": "게시판 상세"
+	},
+	{
+		"depth1": "",
+		"depth2": "form",
+		"depth3": "",
+		"id": "input_form",
+		"memo": "정보 입력폼"
+	},
+	{
+		"depth1": "",
+		"depth2": "paging",
+		"depth3": "",
+		"id": "paging",
+		"memo": "게시판 페이징"
+	},
+	{
+		"depth1": "",
+		"depth2": "btn",
+		"depth3": "",
+		"id": "btn",
+		"memo": "버튼"
+	},
+	{
+		"depth1": "",
+		"depth2": "misc",
+		"depth3": "checkbox",
+		"id": "checkbox",
+		"memo": "체크박스"
+	},
+	{
+		"depth1": "",
+		"depth2": "",
+		"depth3": "radio",
+		"id": "radio",
+		"memo": "라디오 버튼"
+	},
+	{
+		"depth1": "",
+		"depth2": "",
+		"depth3": "select_box",
+		"id": "select_box",
+		"memo": "셀렉트 박스"
+	},
+	{
+		"depth1": "popup",
+		"depth2": "modal_popup",
+		"depth3": "",
+		"id": "modal",
+		"memo": "모달 팝업"
+	},
+	{
+		"depth1": "",
+		"depth2": "loading",
+		"depth3": "",
+		"id": "loading",
+		"memo": "로딩"
+	}
+]
