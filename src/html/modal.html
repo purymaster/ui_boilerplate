@@ -1,0 +1,110 @@
+@@include('header.html')
+<div data-column-box>
+	<h2 class="column_tit">Modal</h2>
+	<h3 class="cont_tit">Default</h3>
+	<ul data-ctr-btn>
+		<li>
+			<a href="#modal1" data-open-modal>Open Modal</a>
+		</li>
+	</ul>
+	<div class="code">
+		<div data-modal id="modal1" aria-haspopup="dialog" title="대화상자" hidden>
+			<section
+				class="modal"
+				role="dialog"
+				aria-label="Popup Title"
+				aria-modal="true"
+				tabindex="0"
+			>
+				<h1>Popup Title</h1>
+				<div class="modal_cont">
+					Popup Content
+					<a href="#none">Test Link</a>
+					<a href="#none">Test Link</a>
+				</div>
+				<button class="close">
+					<i data-feather="x" aria-hidden="true">팝업 닫기</i>
+				</button>
+			</section>
+		</div>
+	</div>
+	<pre><code class="language-markup"></code></pre>
+</div>
+
+<div data-column-box>
+	<h3 class="cont_tit">Video</h3>
+	<ul data-ctr-btn>
+		<li>
+			<a href="#modal2" data-open-modal>Open Modal</a>
+		</li>
+	</ul>
+	<div class="code">
+		<div data-modal id="modal2" aria-haspopup="dialog" title="대화상자" hidden>
+			<section
+				class="modal video"
+				role="dialog"
+				aria-label="Video Title"
+				aria-modal="true"
+				tabindex="0"
+			>
+				<div class="video_wrap" data-video>
+					<iframe
+						src="https://www.youtube.com/embed/GWDvTW7IpUM"
+						data-src="https://www.youtube.com/embed/GWDvTW7IpUM"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen
+					></iframe>
+				</div>
+				<button class="close">
+					<i data-feather="x" aria-hidden="true">팝업 닫기</i>
+				</button>
+			</section>
+		</div>
+	</div>
+	<pre><code class="language-markup"></code></pre>
+</div>
+
+<div data-column-box>
+	<h3 class="cont_tit">Banner(키보드 접근성 보완 미처리)</h3>
+	<ul data-ctr-btn>
+		<li>
+			<a href="#modal3" data-open-modal>Open Modal</a>
+		</li>
+	</ul>
+	<div class="code">
+		<div
+			data-modal="popup"
+			id="modal3"
+			aria-haspopup="dialog"
+			title="대화상자"
+			hidden
+		>
+			<section
+				class="modal banner"
+				role="dialog"
+				aria-label="Banner Title"
+				aria-modal="true"
+				tabindex="0"
+			>
+				<a href="#none">
+					<img src="https://picsum.photos/seed/picsum/500/700" alt="" />
+				</a>
+				<div style="padding: 0.25em">
+					<ul data-option>
+						<li>
+							<input type="checkbox" name="nopopup" id="popup1" />
+							<label for="popup1">Don't show this popup for 24 hours</label>
+						</li>
+					</ul>
+				</div>
+				<button class="close">
+					<i data-feather="x" aria-hidden="true">팝업 닫기</i>
+				</button>
+			</section>
+		</div>
+	</div>
+	<pre><code class="language-markup"></code></pre>
+</div>
+@@include('footer.html')

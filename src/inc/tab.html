@@ -1,0 +1,16 @@
+@@if(context.has_tab) {
+<!-- 탭메뉴 -->
+<div data-tab-menu>
+	<ul class="@@type" role="tablist">
+		<!-- [D] 현재 페이지에 해당 되는 li에 on 클래스 부여 -->
+		@@for(i = 0; i < context.tab_list.length; i++) {
+			<li role="tab" aria-controls="">
+				<a href=`+context.target_list[i]+`>
+					<span>`+context.tab_list[i]+`</span>
+				</a>
+			</li>
+		}
+	</ul>
+</div>
+<!-- //탭메뉴 -->
+}

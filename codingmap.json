@@ -89,12 +89,5 @@
 		"depth3": "",
 		"id": "modal",
 		"memo": "모달 팝업"
-	},
-	{
-		"depth1": "",
-		"depth2": "loading",
-		"depth3": "",
-		"id": "loading",
-		"memo": "로딩"
 	}
 ]

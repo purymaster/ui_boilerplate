@@ -1,0 +1,21 @@
+		</div>
+	</div>
+	<script>
+		feather.replace();
+	</script>
+	<script>
+		$(function () {
+			$(".code").each(function () {
+				let codeContent = $(this).html();
+				codeContent = escapeHtml(codeContent);
+				$(this).next("pre").find(".language-markup").html(codeContent);
+			});
+		});
+
+		function escapeHtml(text) {
+			return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+		}
+	</script>
+</body>
+
+</html>
