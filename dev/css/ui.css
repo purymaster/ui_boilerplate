@@ -818,6 +818,115 @@ caption,
 	} */
 }
 
+/* 갤러리 리스트 */
+[data-gallery]>ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+[data-gallery]>ul>li {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 1 calc(33.33% - 20px);
+	flex: 0 1 calc(33.33% - 20px);
+}
+
+[data-gallery] a {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+[data-gallery] .img_wrap {
+	height: 0;
+	padding-top: 56.25%;
+	position: relative;
+}
+
+[data-gallery] .img_wrap .cover {
+	overflow: hidden;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+[data-gallery] .img_wrap img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+[data-gallery] a:hover .img_wrap img,
+[data-gallery] a:focus .img_wrap img {
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
+}
+
+[data-gallery] .txt_wrap {
+	margin-top: 15px;
+}
+
+[data-gallery] .txt_wrap .tit {
+	font-weight: 700;
+	font-size: 1.2em;
+	color: var(--point-color);
+}
+
+[data-gallery] .txt_wrap .txt {
+	margin-top: 15px;
+}
+
+[data-gallery] .txt_wrap .time {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 5px;
+	margin-top: 15px;
+	font-size: 0.9em;
+	color: var(--secondary-color);
+}
+
+[data-gallery] .txt_wrap svg {
+	width: 1em;
+	height: 1em;
+}
+
+@media (max-width: 1024px) {
+	[data-gallery]>ul {
+		gap: 15px;
+	}
+
+	[data-gallery]>ul>li {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 1 calc(50% - 8px);
+		flex: 0 1 calc(50% - 8px);
+	}
+}
+
+@media (max-width: 599px) {
+	[data-gallery]>ul>li {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 1 100%;
+		flex: 0 1 100%;
+	}
+}
+
 /* 모달 */
 [data-modal] {
 	display: -webkit-box;
