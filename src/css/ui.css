@@ -829,6 +829,38 @@ caption,
 	}
 }
 
+/* 페이징 */
+[data-paging] {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	gap: 5px;
+	align-items: center;
+}
+
+[data-paging] .on,
+[data-paging] a {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 2.5em;
+	height: 2.5em;
+	padding: 0.25em;
+	border: 1px solid var(--secondary-color);
+}
+
+[data-paging] .on {
+	border-color: var(--point-color);
+	background: var(--point-color);
+	color: #fff;
+	font-weight: 700;
+}
+
+[data-paging] svg {
+	width: 1.5em;
+	height: 1.5em;
+}
+
 /* 모달 */
 [data-modal] {
 	display: flex;
