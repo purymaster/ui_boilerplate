@@ -6,8 +6,10 @@
 
 :root {
 	--primary-color: indigo;
-	--secondary-color: #999;
+	--secondary-color: #bbb;
 	--point-color: mediumvioletred;
+	--alert-color: tomato;
+	--safety-color: forestgreen;
 	--youtube-color: red;
 	--facebook-color: #4267b2;
 	--twitter-color: #1da1f2;
@@ -246,6 +248,7 @@ label {
 	cursor: pointer;
 }
 caption,
+legend,
 .hidden {
 	overflow: hidden;
 	clip: rect(0 0 0 0);
@@ -406,6 +409,320 @@ caption,
 	}
 }
 
+/* 셀렉트박스 */
+[data-select-box] {
+	display: inline-flex;
+	position: relative;
+	align-items: center;
+	background: #fff;
+	text-align: left;
+	border: 1px solid var(--secondary-color);
+}
+
+[data-select-box] select {
+	z-index: 1;
+	line-height: 1.5em;
+	padding: 0.25em 0.5em;
+	padding-right: 1.25em;
+}
+
+[data-select-box].full,
+[data-select-box].full select {
+	width: 100%;
+}
+
+[data-select-box] svg {
+	position: absolute;
+	z-index: 0;
+	top: 50%;
+	right: 0.25em;
+	width: 1em;
+	height: 1em;
+	margin-top: -0.5em;
+	color: var(--point-color);
+}
+
+/* 입력폼 */
+[data-input] {
+	display: inline-flex;
+	position: relative;
+	border: 1px solid var(--secondary-color);
+	max-width: 100%;
+}
+
+[data-input]
+	> :is(
+		input[type="text"],
+		input[type="password"],
+		input[type="tel"],
+		input[type="email"],
+		input[type="number"],
+		input[type="search"]
+	) {
+	line-height: 1.5em;
+	padding: 0.25em 0.5em;
+}
+
+[data-input].full,
+[data-input].full
+	> :is(
+		input[type="text"],
+		input[type="password"],
+		input[type="tel"],
+		input[type="email"],
+		input[type="number"],
+		input[type="search"]
+	),
+[data-input] input[type="text"].full {
+	width: 100%;
+}
+
+[data-input].box {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 5px;
+	border: 0;
+}
+
+[data-input].box :is(input[type="text"], input[type="password"]) {
+	border: 1px solid var(--secondary-color);
+}
+
+[data-input="password"] input[type="password"] {
+	padding-right: 1.5em;
+}
+
+[data-input="password"] button {
+	position: absolute;
+	z-index: 0;
+	top: 50%;
+	right: 0.25em;
+	line-height: 1em;
+	margin-top: -0.5em;
+}
+
+[data-input="password"] button svg {
+	width: 1em;
+	height: 1em;
+	color: var(--point-color);
+}
+
+[data-input="tel"] input[type="text"] {
+	width: 60px;
+}
+
+[data-input="address"] {
+	width: 100%;
+}
+
+[data-input="file"] {
+	display: block !important;
+}
+
+[data-input="file"] .file_list {
+	margin-top: 15px;
+}
+
+[data-input="file"] .file_list li {
+	display: flex;
+	line-height: 2em;
+	align-items: center;
+	gap: 5px;
+}
+
+[data-input="file"] .file_list .name {
+	overflow: hidden;
+	max-width: 250px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+[data-input="file"] .file_list button {
+	display: inline-flex;
+}
+
+[data-input="file"] .file_list svg {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+[data-input="file_drag"] {
+	width: 100%;
+	height: 150px;
+	align-items: center;
+	justify-content: center;
+	background: #f1f1f1;
+	border-style: dashed;
+	cursor: pointer;
+}
+
+/* 제어 버튼 */
+[data-ctr-btn] {
+	display: flex;
+	margin-top: 50px;
+	font-size: 0;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 5px;
+}
+
+[data-ctr-btn].single {
+	display: inline-flex;
+	margin-top: 0;
+}
+
+[data-ctr-btn].full {
+	flex-direction: column;
+}
+
+[data-ctr-btn] li {
+	display: inline-flex;
+	align-items: center;
+}
+
+[data-ctr-btn].full li {
+	max-width: 100%;
+}
+
+[data-ctr-btn] li :is(a, button, label) {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	padding: 0.5em 2em;
+	border: 1px solid var(--secondary-color);
+	background-color: var(--secondary-color);
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	align-items: center;
+	transition: all 0.3s;
+	flex-wrap: wrap;
+	box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 10%);
+}
+
+[data-ctr-btn] li :is(a:not(.outline):hover, button:not(.outline):hover) {
+	filter: brightness(0.8);
+}
+
+[data-ctr-btn] .small {
+	font-size: 16px;
+	padding: 0.25em 1em;
+}
+
+[data-ctr-btn] .rounded {
+	border-radius: 0.5em;
+}
+
+[data-ctr-btn] .capsule {
+	border-radius: 3em;
+}
+
+[data-ctr-btn] .outline {
+	background-color: #fff;
+	color: var(--secondary-color);
+}
+
+[data-ctr-btn] .outline:hover {
+	background-color: var(--secondary-color);
+	color: #fff;
+}
+
+[data-ctr-btn] li :is(a, button, label) svg {
+	width: 1.2em;
+	height: 1.2em;
+	margin: 0 5px;
+}
+
+[data-ctr-btn] .submit.outline {
+	color: var(--point-color);
+	border-color: var(--point-color);
+}
+
+[data-ctr-btn] .youtube.outline {
+	color: var(--youtube-color);
+	border-color: var(--youtube-color);
+}
+
+[data-ctr-btn] .facebook.outline {
+	color: var(--facebook-color);
+	border-color: var(--facebook-color);
+}
+
+[data-ctr-btn] .twitter.outline {
+	color: var(--twitter-color);
+	border-color: var(--twitter-color);
+}
+
+[data-ctr-btn] .submit:not(.outline) {
+	border-color: var(--point-color);
+	background-color: var(--point-color);
+}
+
+[data-ctr-btn] .youtube:not(.outline) {
+	border-color: var(--youtube-color);
+	background-color: var(--youtube-color);
+}
+
+[data-ctr-btn] .facebook:not(.outline) {
+	border-color: var(--facebook-color);
+	background-color: var(--facebook-color);
+}
+
+[data-ctr-btn] .twitter:not(.outline) {
+	border-color: var(--twitter-color);
+	background-color: var(--twitter-color);
+}
+
+[data-ctr-btn] .submit.outline:hover {
+	color: #fff;
+	background-color: var(--point-color);
+}
+
+[data-ctr-btn] .youtube.outline:hover {
+	color: #fff;
+	background-color: var(--youtube-color);
+}
+
+[data-ctr-btn] .facebook.outline:hover {
+	color: #fff;
+	background-color: var(--facebook-color);
+}
+
+[data-ctr-btn] .twitter.outline:hover {
+	color: #fff;
+	background-color: var(--twitter-color);
+}
+
+@media (max-width: 1024px) {
+	[data-ctr-btn] {
+		margin-top: 30px;
+	}
+
+	[data-ctr-btn] li :is(a, button, label) {
+		font-size: 16px;
+		padding: 0.75em 1.5em;
+	}
+
+	[data-ctr-btn] .small {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 599px) {
+	[data-ctr-btn] li :is(a, button, label) {
+		font-size: 14px;
+		padding: 0.75em 1em;
+	}
+
+	[data-ctr-btn] .small {
+		font-size: 12px;
+	}
+}
+
 /* 탭메뉴 */
 [data-tab-menu] {
 	font-size: 1.25em;
@@ -474,17 +791,6 @@ caption,
 	border-top: 1px solid var(--secondary-color);
 }
 
-[data-table] table caption {
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	border: 0;
-}
-
 [data-table] table :is(th, td) {
 	height: 50px;
 	line-height: 1.5em;
@@ -502,7 +808,8 @@ caption,
 
 [data-table] table th {
 	background: #eee;
-	font-size: 1.05em;
+	font-size: 1.1em;
+	font-weight: 700;
 	text-align: center;
 }
 
@@ -951,6 +1258,103 @@ caption,
 	height: 1.5em;
 }
 
+/* 정보 입력폼 */
+[data-input-form] .notice {
+	text-align: right;
+	margin-bottom: 1.5em;
+}
+
+[data-input-form] .essential {
+	width: 0.5em;
+	height: 0.5em;
+	color: var(--alert-color);
+	fill: var(--alert-color);
+}
+
+[data-input-form] table {
+	border-top: 3px solid var(--point-color);
+}
+
+[data-input-form] :is(th, td) {
+	height: 50px;
+	line-height: 1.5em;
+	padding: 0.5em;
+	border-bottom: 1px solid var(--secondary-color);
+	border-inline-start: 1px solid var(--secondary-color);
+	border-inline-end: 1px solid var(--secondary-color);
+	vertical-align: middle;
+}
+
+[data-input-form] table.side_borderless tr > *:first-child {
+	border-inline-start: none;
+}
+
+[data-input-form] table.side_borderless tr > *:last-child {
+	border-inline-end: none;
+}
+
+[data-input-form] th {
+	font-weight: 700;
+	font-size: 1.1em;
+}
+
+[data-input-form] td .info {
+	margin-top: 0.5em;
+}
+
+[data-input-form] td .info svg {
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
+
+[data-input-form] td.alert [data-input],
+[data-input-form] td.alert fieldset :is(input[type="text"], [data-select-box]),
+[data-input-form] td.alert [data-select-box]:only-child {
+	border-color: var(--alert-color);
+}
+
+[data-input-form] td.alert .info {
+	color: var(--alert-color);
+}
+
+[data-input-form] td.pass .info {
+	color: var(--safety-color);
+}
+
+@media (max-width: 1024px) {
+	[data-input-form] :is(table, thead, tbody, tr, th, td) {
+		display: block;
+		text-align: left !important;
+		height: auto !important;
+	}
+
+	[data-input-form] tr {
+		padding: 0.5em 0;
+		border-bottom: 1px solid var(--secondary-color);
+	}
+
+	[data-input-form] :is(th, td) {
+		height: 40px;
+		padding: 0.25em;
+		border: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	[data-input-form] th {
+		margin-bottom: 0.5em;
+	}
+}
+
+@media (max-width: 599px) {
+	[data-input-form] :is(th, td) {
+		height: 30px;
+		line-height: 1.5em;
+		padding: 0.25em 0.125em;
+	}
+}
+
 /* 모달 */
 [data-modal] {
 	display: flex;
@@ -1025,7 +1429,7 @@ caption,
 	margin-bottom: 15px;
 	font-size: 1.35em;
 	font-weight: 700;
-	color: var(--primary-color);
+	color: var(--point-color);
 }
 
 [data-modal] .modal .close {
@@ -1037,7 +1441,7 @@ caption,
 	right: 0;
 	width: 50px;
 	height: 50px;
-	background: var(--primary-color);
+	background: var(--point-color);
 	color: #fff;
 }
 
