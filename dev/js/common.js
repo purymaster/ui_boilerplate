@@ -55,18 +55,28 @@
 		}
 
 		tabMenuItems
-			.on("click", function(e) {
+			.on("click", function() {
 				showPanel($(this));
 			})
 			.on("keydown", function(e) {
 				const keyMap = {
 					13: function($this) {
-						e.preventDefault();
-						showPanel($this);
+						if ($this.is("button")) {
+							e.preventDefault();
+							showPanel($this);
+						}
 					},
 					32: function($this) {
 						e.preventDefault();
-						showPanel($this);
+						if ($this.is("button")) {
+							showPanel($this);
+						} else if ($this.is("a")) {
+							if ($this.attr("target") === "_blank") {
+								window.open($this.attr("href"));
+							} else {
+								window.location.href = $this.attr("href");
+							}
+						}
 					},
 					37: function($this) {
 						if ($this[0].previousElementSibling) {
