@@ -409,6 +409,41 @@ legend,
 	}
 }
 
+/* 체크박스, 라디오버튼 */
+[data-option],
+[data-option] li {
+	display: inline-flex;
+	flex-wrap: wrap;
+}
+
+[data-option].block {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+[data-option].single {
+	display: inline-flex;
+}
+
+[data-option] {
+	column-gap: 1em;
+	row-gap: 0.5em;
+}
+
+[data-option] li {
+	align-items: center;
+	gap: 5px;
+}
+
+[data-option] input[type="checkbox"],
+[data-option] input[type="radio"] {
+	transform: scale(1.5);
+	transform-origin: left;
+	margin: 0;
+	margin-right: 0.5em;
+}
+
 /* 셀렉트박스 */
 [data-select-box] {
 	display: inline-flex;
@@ -579,6 +614,7 @@ legend,
 [data-ctr-btn] li {
 	display: inline-flex;
 	align-items: center;
+	transition: all 0.3s;
 }
 
 [data-ctr-btn].full li {
@@ -599,12 +635,11 @@ legend,
 	text-align: center;
 	white-space: nowrap;
 	align-items: center;
-	transition: all 0.3s;
 	flex-wrap: wrap;
 	box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 10%);
 }
 
-[data-ctr-btn] li :is(a:not(.outline):hover, button:not(.outline):hover) {
+[data-ctr-btn] li:hover:not(.outline) {
 	filter: brightness(0.8);
 }
 

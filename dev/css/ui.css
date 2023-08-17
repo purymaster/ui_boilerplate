@@ -446,6 +446,59 @@ legend,
 	}
 }
 
+/* 체크박스, 라디오버튼 */
+[data-option],
+[data-option] li {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+[data-option].block {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+
+[data-option].single {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+[data-option] {
+	-webkit-column-gap: 1em;
+	-moz-column-gap: 1em;
+	column-gap: 1em;
+	row-gap: 0.5em;
+}
+
+[data-option] li {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 5px;
+}
+
+[data-option] input[type="checkbox"],
+[data-option] input[type="radio"] {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-transform-origin: left;
+	transform-origin: left;
+	margin: 0;
+	margin-right: 0.5em;
+}
+
 /* 셀렉트박스 */
 [data-select-box] {
 	display: -webkit-inline-box;
@@ -645,6 +698,8 @@ legend,
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
 [data-ctr-btn].full li {
@@ -671,15 +726,13 @@ legend,
 	text-align: center;
 	white-space: nowrap;
 	align-items: center;
-	-webkit-transition: all 0.3s;
-	transition: all 0.3s;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	-webkit-box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 10%);
 	box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 10%);
 }
 
-[data-ctr-btn] li :is(a:not(.outline):hover, button:not(.outline):hover) {
+[data-ctr-btn] li:hover:not(.outline) {
 	-webkit-filter: brightness(0.8);
 	filter: brightness(0.8);
 }

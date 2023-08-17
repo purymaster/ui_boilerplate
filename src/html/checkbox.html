@@ -1,0 +1,54 @@
+@@include('header.html')
+<div data-column-box>
+	<h2 class="column_tit">Checkbox</h2>
+	<h3 class="cont_tit">Default</h3>
+	<div class="code">
+		<ul data-option>
+			<li>
+				<input type="checkbox" name="check" id="radio1" checked />
+				<label for="radio1">Value1</label>
+			</li>
+			<li>
+				<input type="checkbox" name="check" id="radio2" disabled />
+				<label for="radio2">Value2</label>
+			</li>
+			<li>
+				<input type="checkbox" name="check" id="radio3" />
+				<label for="radio3">Value3</label>
+			</li>
+		</ul>
+	</div>
+	<pre><code class="language-markup"></code></pre>
+</div>
+
+<div data-column-box>
+	<h3 class="cont_tit">Block</h3>
+	<div class="code">
+		<ul data-option class="block">
+			<li>
+				<input type="checkbox" name="check" id="radio4" />
+				<label for="radio4">Value4</label>
+			</li>
+			<li>
+				<input type="checkbox" name="check" id="radio5" />
+				<label for="radio5">Value5</label>
+			</li>
+		</ul>
+	</div>
+	<pre><code class="language-markup"></code></pre>
+</div>
+
+<div data-column-box>
+	<h3 class="cont_tit">Single</h3>
+	<div class="code">
+		<ul data-option class="single">
+			<li>
+				<label>
+					<input type="checkbox" name="check" id="radio6" />
+				</label>
+			</li>
+		</ul>
+	</div>
+	<pre><code class="language-markup"></code></pre>
+</div>
+@@include('footer.html')
