@@ -92,6 +92,7 @@
 									<th scope="row">
 										<label for="input1">
 											<i data-feather="star" aria-hidden="true" class="essential"></i>
+											<span class="hidden">Required field</span>
 											Default
 										</label>
 									</th>
@@ -264,7 +265,61 @@
 								</tr>
 								<tr>
 									<th scope="row">
-										<label for="input11">Custom Upload(Multi)</label>
+										<label for="input11">Radio</label>
+									</th>
+									<td>
+										<fieldset id="input11">
+											<legend>옵션 선택</legend>
+											<div data-input class="box">
+												<ul data-option>
+													<li>
+														<input type="radio" name="radio" id="radio1" checked />
+														<label for="radio1">Value1</label>
+													</li>
+													<li>
+														<input type="radio" name="radio" id="radio2" disabled />
+														<label for="radio2">Value2</label>
+													</li>
+													<li>
+														<input type="radio" name="radio" id="radio3" />
+														<label for="radio3">Value3</label>
+													</li>
+												</ul>
+												<input type="text" disabled />
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input12">Checkbox</label>
+									</th>
+									<td>
+										<fieldset id="input12">
+											<legend>옵션 선택</legend>
+											<div data-input class="box">
+												<ul data-option>
+													<li>
+														<input type="checkbox" name="check" id="check1" checked />
+														<label for="check1">Value1</label>
+													</li>
+													<li>
+														<input type="checkbox" name="check" id="check2" disabled />
+														<label for="check2">Value2</label>
+													</li>
+													<li>
+														<input type="checkbox" name="check" id="check3" />
+														<label for="check3">Value3</label>
+													</li>
+												</ul>
+												<input type="text" disabled />
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input13">Custom Upload(Multi)</label>
 									</th>
 									<td>
 										<fieldset>
@@ -275,10 +330,10 @@
 											data-cnt : 업로드 허용 파일 개수
 											data-size: 업로드 허용 파일 용량(각 파일당, MB)
 										-->
-													<input type="file" id="input11" class="hidden" data-cnt="5" data-size="1" multiple />
+													<input type="file" id="input13" class="hidden" data-cnt="5" data-size="1" multiple />
 													<ul data-ctr-btn class="single">
 														<li>
-															<label for="input11" class="small">Select File</label>
+															<label for="input13" class="small">Select File</label>
 														</li>
 													</ul>
 													<div class="cnt"></div>
@@ -291,7 +346,7 @@
 								</tr>
 								<tr>
 									<th scope="row">
-										<label for="input12">Custom Upload(Drag)</label>
+										<label for="input14">Custom Upload(Drag)</label>
 									</th>
 									<td>
 										<fieldset>
