@@ -559,6 +559,17 @@ legend,
 	outline: 3px dashed var(--primary-color);
 }
 
+[data-input="file"] .upload_form {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+[data-input="file"] .upload_form :is(.cnt, .size) span {
+	color: var(--point-color);
+	font-weight: 700;
+}
+
 [data-input="file"] .file_list li {
 	display: flex;
 	line-height: 1.5em;

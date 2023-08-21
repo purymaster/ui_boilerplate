@@ -619,6 +619,21 @@ legend,
 	outline: 3px dashed var(--primary-color);
 }
 
+[data-input="file"] .upload_form {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 15px;
+}
+
+[data-input="file"] .upload_form :is(.cnt, .size) span {
+	color: var(--point-color);
+	font-weight: 700;
+}
+
 [data-input="file"] .file_list li {
 	display: -webkit-box;
 	display: -ms-flexbox;

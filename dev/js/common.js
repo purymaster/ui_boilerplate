@@ -245,59 +245,105 @@
 	}
 
 	function handleFileUpload() {
-		let files = [];
+		const $uploadForm = $("[data-input='file']");
 
-		function updateUploadList($uploadList) {
-			$uploadList.empty();
+		function initFileUpload(form, cnt, size) {
+			if (cnt) {
+				form
+					.find(".cnt")
+					.html(`<span class='current'>0</span> / <span>${cnt}</span>`);
+			}
+			if (size) {
+				form.find(".size").html(`Upload Limit : <span>${size}</span>MB`);
+			}
+		}
+
+		function updateUploadList(list, files) {
+			list.empty();
 			files.forEach((file) => {
 				const fileName = file.name;
 				const listItem = $(`
-					<li>
-						<div class="img_wrap">
-							<img src="" alt="" />
-						</div>
-						<i class="icon" data-feather="file" aria-hidden="true"></i>
-						<div class="name">${fileName}</div>
-						<button type="button" class="delete">
-							<i class="icon" data-feather="x-circle" aria-hidden="true"></i>
-							<span class="hidden">파일 업로드 취소</span>
-						</button>
-					</li>
-				`);
+                <li>
+									<div class="img_wrap">
+										<img src="" alt="" />
+									</div>
+									<i class="icon" data-feather="file" aria-hidden="true"></i>
+									<div class="name">${fileName}</div>
+									<button type="button" class="delete">
+										<i class="icon" data-feather="x-circle" aria-hidden="true"></i>
+										<span class="hidden">파일 업로드 취소</span>
+									</button>
+                </li>
+            `);
 				if (isImageFile(fileName)) {
 					listItem.find(".img_wrap img").attr("src", URL.createObjectURL(file));
 				} else {
 					listItem.find(".img_wrap").hide();
 				}
-				$uploadList.append(listItem);
+				list.append(listItem);
 				feather.replace();
 			});
 		}
 
-		function handleFileChange(e) {
-			const newFiles = Array.from(e.target.files);
-			if (e.target.multiple) {
-				files = files.concat(newFiles);
-			} else {
-				files = newFiles;
+		function handleFileChange(e, cnt, size, files) {
+			const input = e.target;
+			const newFiles = Array.from(input.files);
+			const maxSize = size * 1024 * 1024;
+			const oversizedFiles = newFiles.filter((file) => file.size > maxSize);
+
+			if (oversizedFiles.length > 0) {
+				alert("File size limit exceeded");
+				input.value = "";
+				return;
 			}
-			const $uploadList = $(e.target).siblings(".file_list");
-			updateUploadList($uploadList);
+
+			if (input.multiple) {
+				if (files.value.length + newFiles.length > cnt) {
+					alert("File number limit exceeded");
+					return;
+				}
+				files.value = files.value.concat(newFiles);
+			} else {
+				files.value = newFiles;
+			}
+			const $uploadList = $(input)
+				.parents("[data-input='file']")
+				.find(".file_list");
+			const $uploadCount = $(input)
+				.parents("[data-input='file']")
+				.find(".cnt .current");
+			updateUploadList($uploadList, files.value);
+			$uploadCount.text(files.value.length);
 		}
 
-		function handleFileDelete(e) {
-			const listItem = $(e.target).closest("li");
+		function handleFileDelete(e, files) {
+			const target = $(e.target);
+			const listItem = target.closest("li");
 			const fileIndex = listItem.index();
-			files.splice(fileIndex, 1);
+			const $uploadCount = target
+				.parents("[data-input='file']")
+				.find(".cnt .current");
+			files.value.splice(fileIndex, 1);
 			listItem.remove();
+			$uploadCount.text(files.value.length);
 		}
 
-		$("[data-input='file']").each(function() {
+		$uploadForm.each(function() {
+			const files = {
+				value: []
+			};
 			const $uploader = $(this).find("input[type='file']");
 			const $uploadList = $(this).find(".file_list");
+			const $uploadCountLimit = $uploader.data("cnt");
+			const $uploadSizeLimit = $uploader.data("size");
 
-			$uploader.on("change", handleFileChange);
-			$uploadList.on("click", ".delete", handleFileDelete);
+			$uploader.on("change", function(e) {
+				handleFileChange(e, $uploadCountLimit, $uploadSizeLimit, files);
+			});
+			$uploadList.on("click", ".delete", function(e) {
+				handleFileDelete(e, files);
+			});
+			initFileUpload($(this), $uploadCountLimit, $uploadSizeLimit);
 		});
 	}
 

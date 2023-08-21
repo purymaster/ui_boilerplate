@@ -251,12 +251,27 @@
 							<fieldset>
 								<legend>파일 업로드</legend>
 								<div data-input="file" class="box">
-									<input type="file" id="input11" class="hidden" multiple />
-									<ul data-ctr-btn class="single">
-										<li>
-											<label for="input11" class="small">Select File</label>
-										</li>
-									</ul>
+									<div class="upload_form">
+										<!-- 
+											data-cnt : 업로드 허용 파일 개수
+											data-size: 업로드 허용 파일 용량(각 파일당, MB)
+										-->
+										<input
+											type="file"
+											id="input11"
+											class="hidden"
+											data-cnt="5"
+											data-size="1"
+											multiple
+										/>
+										<ul data-ctr-btn class="single">
+											<li>
+												<label for="input11" class="small">Select File</label>
+											</li>
+										</ul>
+										<div class="cnt"></div>
+										<div class="size"></div>
+									</div>
 									<ul class="file_list"></ul>
 								</div>
 							</fieldset>
