@@ -555,20 +555,39 @@ legend,
 	display: block !important;
 }
 
-[data-input="file"] .file_list {
-	margin-top: 15px;
+[data-input="file"] input[type="file"]:focus + [data-ctr-btn] label {
+	outline: 3px dashed var(--primary-color);
 }
 
 [data-input="file"] .file_list li {
 	display: flex;
-	line-height: 2em;
+	line-height: 1.5em;
 	align-items: center;
 	gap: 5px;
+	margin-top: 5px;
+}
+
+[data-input="file"] .file_list li:first-child {
+	margin-top: 15px;
+}
+
+[data-input="file"] .file_list .img_wrap {
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+[data-input="file"] .file_list .img_wrap img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 [data-input="file"] .file_list .name {
 	overflow: hidden;
-	max-width: 250px;
+	max-width: 150px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }

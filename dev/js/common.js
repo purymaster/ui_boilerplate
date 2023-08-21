@@ -230,11 +230,74 @@
 	}
 
 	/******************** 아코디언 메뉴 제어 ********************/
-
 	function handleAccordionMenus() {
 		const $accordion = $("[data-accordion] > div");
 		$accordion.on("click", function() {
 			$(this).toggleClass("on");
+		});
+	}
+
+	/******************** 파일 업로드 제어 ********************/
+	function isImageFile(fileName) {
+		const imageExtensions = ["jpg", "jpeg", "png", "gif"];
+		const extension = fileName.split(".").pop().toLowerCase();
+		return imageExtensions.includes(extension);
+	}
+
+	function handleFileUpload() {
+		let files = [];
+
+		function updateUploadList($uploadList) {
+			$uploadList.empty();
+			files.forEach((file) => {
+				const fileName = file.name;
+				const listItem = $(`
+					<li>
+						<div class="img_wrap">
+							<img src="" alt="" />
+						</div>
+						<i class="icon" data-feather="file" aria-hidden="true"></i>
+						<div class="name">${fileName}</div>
+						<button type="button" class="delete">
+							<i class="icon" data-feather="x-circle" aria-hidden="true"></i>
+							<span class="hidden">파일 업로드 취소</span>
+						</button>
+					</li>
+				`);
+				if (isImageFile(fileName)) {
+					listItem.find(".img_wrap img").attr("src", URL.createObjectURL(file));
+				} else {
+					listItem.find(".img_wrap").hide();
+				}
+				$uploadList.append(listItem);
+				feather.replace();
+			});
+		}
+
+		function handleFileChange(e) {
+			const newFiles = Array.from(e.target.files);
+			if (e.target.multiple) {
+				files = files.concat(newFiles);
+			} else {
+				files = newFiles;
+			}
+			const $uploadList = $(e.target).siblings(".file_list");
+			updateUploadList($uploadList);
+		}
+
+		function handleFileDelete(e) {
+			const listItem = $(e.target).closest("li");
+			const fileIndex = listItem.index();
+			files.splice(fileIndex, 1);
+			listItem.remove();
+		}
+
+		$("[data-input='file']").each(function() {
+			const $uploader = $(this).find("input[type='file']");
+			const $uploadList = $(this).find(".file_list");
+
+			$uploader.on("change", handleFileChange);
+			$uploadList.on("click", ".delete", handleFileDelete);
 		});
 	}
 
@@ -243,5 +306,6 @@
 		initModal();
 		handlePopupCookies();
 		handleAccordionMenus();
+		handleFileUpload();
 	});
 })(jQuery);

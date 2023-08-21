@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>UI 퍼블리싱 가이드</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
+	<link rel="stylesheet" href="../css/ui.css">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/feather.min.js"></script>
+	<script src="../js/prism-1.17.1.min.js"></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="container">
+
+			<div data-column-box>
+				<h2 class="column_tit">Form</h2>
+				<h3 class="cont_tit">Default</h3>
+				<div class="code">
+					<div data-input-form>
+						<table>
+							<caption>
+								입력폼에 관한 정보
+							</caption>
+							<colgroup>
+								<col style="width: 20%" />
+								<col />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">Category</th>
+									<td>Content</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<pre><code class="language-markup"></code></pre>
+			</div>
+
+			<div data-column-box>
+				<h3 class="cont_tit">No Side Border</h3>
+				<div class="code">
+					<div data-input-form>
+						<table class="side_borderless">
+							<caption>
+								입력폼에 관한 정보
+							</caption>
+							<colgroup>
+								<col style="width: 20%" />
+								<col />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">Category</th>
+									<td>Content</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<pre><code class="language-markup"></code></pre>
+			</div>
+
+			<div data-column-box>
+				<h3 class="cont_tit">Input Types</h3>
+				<div class="code">
+					<div data-input-form role="dialog">
+						<p class="notice">
+							<i data-feather="star" aria-hidden="true" class="essential"></i>
+							Required fields
+						</p>
+						<table>
+							<caption>
+								입력폼에 관한 정보
+							</caption>
+							<colgroup>
+								<col style="width: 20%" />
+								<col />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">Category</th>
+									<td>Content</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input1">
+											<i data-feather="star" aria-hidden="true" class="essential"></i>
+											Default
+										</label>
+									</th>
+									<td>
+										<div data-input>
+											<input type="text" id="input1" />
+										</div>
+										<div class="info">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input2">Alert</label>
+									</th>
+									<td class="alert">
+										<div data-input>
+											<input type="text" id="input2" />
+										</div>
+										<div class="info">
+											<p role="alert">
+												<i data-feather="alert-circle" aria-hidden="true"></i>
+												This is alert message.
+											</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input3">Allow</label>
+									</th>
+									<td class="pass">
+										<div data-input>
+											<input type="text" id="input3" />
+										</div>
+										<div class="info">
+											<p role="status">
+												<i data-feather="check-circle" aria-hidden="true"></i>
+												This is allow message.
+											</p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input4">Full Size</label>
+									</th>
+									<td>
+										<div data-input class="full">
+											<input type="text" id="input4" />
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input5">Password</label>
+									</th>
+									<td>
+										<div data-input="password" class="box">
+											<input type="password" id="input5" />
+											<button>
+												<i data-feather="eye" aria-hidden="true"></i>
+												<span class="hidden">비밀번호 보이기</span>
+												<!-- 
+										<i data-feather="eye-off" aria-hidden="true"></i>
+										<span class="hidden">비밀번호 감추기</span>
+									 -->
+											</button>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input6">Select</label>
+									</th>
+									<td>
+										<div data-select-box>
+											<select id="input6">
+												<option value="menu1">menu1</option>
+												<option value="menu2">menu2</option>
+												<option value="menu3">menu3</option>
+											</select>
+											<i data-feather="chevron-down" aria-hidden="true"></i>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input7">Custom Telephone</label>
+									</th>
+									<td>
+										<fieldset>
+											<legend>전화번호 입력</legend>
+											<div data-input="tel" class="box">
+												<div data-select-box>
+													<select id="input7" title="지역번호">
+														<option value="02">02</option>
+														<option value="010">010</option>
+													</select>
+													<i data-feather="chevron-down" aria-hidden="true"></i>
+												</div>
+												<span>-</span>
+												<input type="text" maxlength="4" title="국번 3~4자리" />
+												<span>-</span>
+												<input type="text" maxlength="4" title="끝 4자리" />
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input8">Custom Email</label>
+									</th>
+									<td>
+										<fieldset>
+											<legend>이메일 입력</legend>
+											<div data-input="mail" class="box">
+												<input type="text" id="input8" title="이메일 아이디" />
+												<span>@</span>
+												<input type="text" title="이메일 계정 직접입력" disabled />
+												<div data-select-box>
+													<select title="이메일 계정 선택">
+														<option value="naver.com">naver.com</option>
+														<option value="custom">직접입력</option>
+													</select>
+													<i data-feather="chevron-down" aria-hidden="true"></i>
+												</div>
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input9">ID</label>
+									</th>
+									<td>
+										<fieldset>
+											<legend>아이디</legend>
+											<div data-input class="box">
+												<input type="text" id="input9" />
+												<ul data-ctr-btn class="single">
+													<li>
+														<button type="button" class="small">Check</button>
+													</li>
+												</ul>
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input10">Address</label>
+									</th>
+									<td>
+										<fieldset>
+											<legend>주소</legend>
+											<div data-input="address" class="box">
+												<input type="text" id="input10" title="우편번호" />
+												<ul data-ctr-btn class="single">
+													<li>
+														<button type="button" class="small">우편번호 찾기</button>
+													</li>
+												</ul>
+												<input type="text" class="full" title="주소" />
+												<input type="text" class="full" title="상세주소" />
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input11">Custom Upload(Multi)</label>
+									</th>
+									<td>
+										<fieldset>
+											<legend>파일 업로드</legend>
+											<div data-input="file" class="box">
+												<input type="file" id="input11" class="hidden" multiple />
+												<ul data-ctr-btn class="single">
+													<li>
+														<label for="input11" class="small">Select File</label>
+													</li>
+												</ul>
+												<ul class="file_list"></ul>
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										<label for="input12">Custom Upload(Drag)</label>
+									</th>
+									<td>
+										<fieldset>
+											<legend>파일 업로드</legend>
+											<div data-input="file_drag" class="upload_box" tabindex="0">
+												<i class="icon" data-feather="file-plus" aria-hidden="true"></i>
+											</div>
+										</fieldset>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<pre><code class="language-markup"></code></pre>
+			</div>
+		</div>
+	</div>
+	<script>
+		feather.replace();
+	</script>
+	<script>
+		$(function() {
+			$(".code").each(function() {
+				let codeContent = $(this).html();
+				codeContent = escapeHtml(codeContent);
+				$(this).next("pre").find(".language-markup").html(codeContent);
+			});
+		});
+
+		function escapeHtml(text) {
+			return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+		}
+	</script>
+</body>
+
+</html>
