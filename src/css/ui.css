@@ -561,13 +561,25 @@ legend,
 
 [data-input="file"] .upload_form {
 	display: flex;
-	align-items: center;
-	gap: 15px;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
 }
 
-[data-input="file"] .upload_form :is(.cnt, .size) span {
+[data-input="file"] .upload_form :is(.cnt, .ext, .size) span {
 	color: var(--point-color);
 	font-weight: 700;
+}
+
+[data-input="file"] .file_list:has(li) {
+	margin-top: 15px;
+}
+
+[data-input="file"] .file_list {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
 [data-input="file"] .file_list li {
@@ -575,11 +587,6 @@ legend,
 	line-height: 1.5em;
 	align-items: center;
 	gap: 5px;
-	margin-top: 5px;
-}
-
-[data-input="file"] .file_list li:first-child {
-	margin-top: 15px;
 }
 
 [data-input="file"] .file_list .img_wrap {
@@ -607,19 +614,54 @@ legend,
 	display: inline-flex;
 }
 
+[data-input="file"] .file_list button:hover {
+	color: var(--point-color);
+}
+
 [data-input="file"] .file_list svg {
 	width: 1.5em;
 	height: 1.5em;
 }
 
-[data-input="file_drag"] {
+[data-input="file"] .drag_box {
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	border: 1px solid var(--secondary-color);
 	width: 100%;
-	height: 150px;
-	align-items: center;
+	min-height: 150px;
+	align-items: flex-start;
 	justify-content: center;
 	background: #f1f1f1;
-	border-style: dashed;
 	cursor: pointer;
+}
+
+[data-input="file"] .drag_box + .upload_form {
+	margin-top: 5px;
+}
+
+[data-input="file"] :is(.drag_box:hover, .drag_box.hover) {
+	border-color: var(--point-color);
+}
+
+[data-input="file"] .drag_box .flie_list li {
+	margin: 0;
+}
+
+[data-input="file"] .drag_box .file_list:has(li) {
+	margin-top: 0;
+}
+
+[data-input="file"] .drag_box .drag_info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	width: 100%;
+}
+
+[data-input="file"] .drag_box .file_list:has(li) + .drag_info {
+	display: none;
 }
 
 /* 제어 버튼 */

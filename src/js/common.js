@@ -238,27 +238,37 @@
 	}
 
 	/******************** 파일 업로드 제어 ********************/
-	function isImageFile(fileName) {
-		const imageExtensions = ["jpg", "jpeg", "png", "gif"];
-		const extension = fileName.split(".").pop().toLowerCase();
-		return imageExtensions.includes(extension);
-	}
-
 	function handleFileUpload() {
 		const $uploadForm = $("[data-input='file']");
 
-		function initFileUpload(form, cnt, size) {
+		function initFileUpload(form, cnt, ext, size) {
 			if (cnt) {
 				form
 					.find(".cnt")
-					.html(`<span class='current'>0</span> / <span>${cnt}</span>`);
+					.html(
+						`Number of files : <span class='current'>0</span> / <span>${cnt}</span>`
+					);
+			}
+			if (ext) {
+				const modifiedExt = ext.replace(/\|/g, ", ");
+				form
+					.find(".ext")
+					.html(`Uploadable file extension : <span>${modifiedExt}</span>`);
 			}
 			if (size) {
-				form.find(".size").html(`Upload Limit : <span>${size}</span>MB`);
+				form
+					.find(".size")
+					.html(`Uploadable file size limit : <span>${size}</span>MB`);
 			}
 		}
 
 		function updateUploadList(list, files) {
+			function isImageFile(fileName) {
+				const imageExtensions = ["jpg", "jpeg", "png", "gif"];
+				const extension = fileName.split(".").pop().toLowerCase();
+				return imageExtensions.includes(extension);
+			}
+
 			list.empty();
 			files.forEach((file) => {
 				const fileName = file.name;
@@ -268,7 +278,7 @@
 										<img src="" alt="" />
 									</div>
 									<i class="icon" data-feather="file" aria-hidden="true"></i>
-									<div class="name">${fileName}</div>
+									<div class="name" title="${fileName}">${fileName}</div>
 									<button type="button" class="delete">
 										<i class="icon" data-feather="x-circle" aria-hidden="true"></i>
 										<span class="hidden">파일 업로드 취소</span>
@@ -285,27 +295,52 @@
 			});
 		}
 
-		function handleFileChange(e, cnt, size, files) {
+		function handleFileChange(e, cnt, ext = null, size, files, isDrag = false) {
 			const input = e.target;
-			const newFiles = Array.from(input.files);
-			const maxSize = size * 1024 * 1024;
-			const oversizedFiles = newFiles.filter((file) => file.size > maxSize);
+			const newFiles = Array.from(
+				isDrag ? e.originalEvent.dataTransfer.files : input.files
+			);
+			const fileExtensionLimit =
+				ext !== null && Array.isArray(ext)
+					? ext
+					: ext !== null
+					? ext.split("|").map((item) => item.trim())
+					: null;
+			const fileSizeLimit = size * 1024 * 1024;
+			const oversizedFiles = newFiles.filter(
+				(file) => file.size > fileSizeLimit
+			);
+			const invalidFiles = newFiles.filter((file) => {
+				const fileExtension = file.name.split(".").pop().toLowerCase();
+				return (
+					fileExtensionLimit !== null &&
+					!fileExtensionLimit.includes(fileExtension)
+				);
+			});
 
 			if (oversizedFiles.length > 0) {
-				alert("File size limit exceeded");
+				alert("Uploadable file size limit exceeded");
 				input.value = "";
 				return;
 			}
 
-			if (input.multiple) {
-				if (files.value.length + newFiles.length > cnt) {
-					alert("File number limit exceeded");
-					return;
-				}
-				files.value = files.value.concat(newFiles);
-			} else {
-				files.value = newFiles;
+			if (invalidFiles.length > 0) {
+				alert("Invalid file extension");
+				input.value = "";
+				return;
 			}
+
+			if (
+				(input.multiple || isDrag) &&
+				files.value.length + newFiles.length > cnt
+			) {
+				alert("Uploadable file number limit exceeded");
+				return;
+			}
+
+			files.value =
+				input.multiple || isDrag ? files.value.concat(newFiles) : newFiles;
+
 			const $uploadList = $(input)
 				.parents("[data-input='file']")
 				.find(".file_list");
@@ -333,15 +368,54 @@
 			const $uploader = $(this).find("input[type='file']");
 			const $uploadList = $(this).find(".file_list");
 			const $uploadCountLimit = $uploader.data("cnt");
+			const $uploadExtensionLimit = $uploader.data("ext");
 			const $uploadSizeLimit = $uploader.data("size");
+			const $uploaderBox = $(this).find(".drag_box");
 
 			$uploader.on("change", function (e) {
-				handleFileChange(e, $uploadCountLimit, $uploadSizeLimit, files);
+				handleFileChange(
+					e,
+					$uploadCountLimit,
+					$uploadExtensionLimit,
+					$uploadSizeLimit,
+					files
+				);
 			});
 			$uploadList.on("click", ".delete", function (e) {
+				e.stopPropagation();
 				handleFileDelete(e, files);
 			});
-			initFileUpload($(this), $uploadCountLimit, $uploadSizeLimit);
+			$uploaderBox
+				.on("click", function (e) {
+					e.stopPropagation();
+					$uploader.trigger("click");
+				})
+				.on("dragenter", function (e) {
+					$(this).addClass("hover");
+				})
+				.on("dragleave", function (e) {
+					$(this).removeClass("hover");
+				})
+				.on("dragover", function (e) {
+					e.preventDefault();
+				})
+				.on("drop", function (e) {
+					e.preventDefault();
+					handleFileChange(
+						e,
+						$uploadCountLimit,
+						$uploadExtensionLimit,
+						$uploadSizeLimit,
+						files,
+						true
+					);
+				});
+			initFileUpload(
+				$(this),
+				$uploadCountLimit,
+				$uploadExtensionLimit,
+				$uploadSizeLimit
+			);
 		});
 	}
 

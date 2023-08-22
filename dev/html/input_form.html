@@ -319,7 +319,7 @@
 								</tr>
 								<tr>
 									<th scope="row">
-										<label for="input13">Custom Upload(Multi)</label>
+										<label for="input13">Custom Upload<br />(Single, Multi, Preview)</label>
 									</th>
 									<td>
 										<fieldset>
@@ -327,16 +327,18 @@
 											<div data-input="file" class="box">
 												<div class="upload_form">
 													<!-- 
-											data-cnt : 업로드 허용 파일 개수
+											data-cnt: 업로드 허용 파일 개수
+											data-ext: 업로드 허용 파일 확장자(|로 구분)
 											data-size: 업로드 허용 파일 용량(각 파일당, MB)
 										-->
-													<input type="file" id="input13" class="hidden" data-cnt="5" data-size="1" multiple />
+													<input type="file" id="input13" class="hidden" data-cnt="5" data-ext="jpg" data-size="5" multiple />
 													<ul data-ctr-btn class="single">
 														<li>
 															<label for="input13" class="small">Select File</label>
 														</li>
 													</ul>
 													<div class="cnt"></div>
+													<div class="ext"></div>
 													<div class="size"></div>
 												</div>
 												<ul class="file_list"></ul>
@@ -346,13 +348,25 @@
 								</tr>
 								<tr>
 									<th scope="row">
-										<label for="input14">Custom Upload(Drag)</label>
+										<label for="input14">Custom Upload<br />(Drag, PC Only)</label>
 									</th>
 									<td>
 										<fieldset>
 											<legend>파일 업로드</legend>
-											<div data-input="file_drag" class="upload_box" tabindex="0">
-												<i class="icon" data-feather="file-plus" aria-hidden="true"></i>
+											<div data-input="file" class="drag box">
+												<div class="drag_box">
+													<ul class="file_list"></ul>
+													<div class="drag_info">
+														<i data-feather="file-plus" aria-hidden="true"></i>
+														Drag and drop upload files
+													</div>
+												</div>
+												<div class="upload_form">
+													<input type="file" id="input14" class="hidden" data-cnt="8" multiple />
+													<div class="cnt"></div>
+													<div class="ext"></div>
+													<div class="size"></div>
+												</div>
 											</div>
 										</fieldset>
 									</td>
