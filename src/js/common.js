@@ -422,11 +422,25 @@
 		});
 	}
 
+	/******************** 색상 변경 ********************/
+	function handleTheme() {
+		const $themeSelector = $("header .theme");
+		let themeColor = localStorage.getItem("themeColor") || "";
+
+		$themeSelector.val(themeColor).on("change", function () {
+			themeColor = $(this).val();
+			document.documentElement.style.setProperty("--point-color", themeColor);
+			localStorage.setItem("themeColor", themeColor);
+		});
+		document.documentElement.style.setProperty("--point-color", themeColor);
+	}
+
 	$(() => {
 		initTabMenu();
 		initModal();
 		handlePopupCookies();
 		handleAccordionMenus();
 		handleFileUpload();
+		handleTheme();
 	});
 })(jQuery);

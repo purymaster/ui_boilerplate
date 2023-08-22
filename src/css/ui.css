@@ -295,6 +295,13 @@ legend,
 	padding: 30px 0;
 }
 
+header {
+	display: flex;
+	justify-content: flex-end;
+	padding: .5em;
+	background: var(--point-color);
+}
+
 .container {
 	position: relative;
 	max-width: 1260px;
@@ -337,13 +344,15 @@ legend,
 }
 
 @media (max-width: 1024px) {
-	[data-column-box] {
+	[data-column-box],
+	header {
 		font-size: 14px;
 	}
 }
 
 @media (max-width: 599px) {
-	[data-column-box] {
+	[data-column-box],
+	header {
 		font-size: 12px;
 	}
 }
@@ -1516,8 +1525,17 @@ legend,
 }
 
 @media (max-width: 1024px) {
-	[data-accordion] :is(.tit button, .txt) {
+	[data-accordion] .tit button {
 		padding: 15px;
+	}
+
+	[data-accordion] .tit svg {
+		margin-right: 15px;
+	}
+
+	[data-accordion] .txt {
+		padding: 15px;
+		padding-top: 0;
 	}
 }
 
