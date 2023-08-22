@@ -1677,6 +1677,72 @@ legend,
 	}
 }
 
+/* 아코디언 메뉴 */
+[data-accordion] .info {
+	cursor: pointer;
+	margin: 15px 0;
+	border: 1px solid #cdcdcd;
+	border-radius: 10px;
+}
+
+[data-accordion] .tit {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+[data-accordion] .tit button {
+	width: 100%;
+	text-align: left;
+	padding: 30px;
+	font-size: 1.1em;
+	font-weight: 700;
+}
+
+[data-accordion] .tit svg {
+	display: none;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	width: 1.5em;
+	height: 1.5em;
+	margin-right: 30px;
+}
+
+[data-accordion] .tit svg:first-of-type {
+	display: block;
+}
+
+[data-accordion] .info.on .tit svg:first-of-type {
+	display: none;
+}
+
+[data-accordion] .info.on .tit svg:last-of-type {
+	display: block;
+}
+
+[data-accordion] .txt {
+	display: none;
+	padding: 30px;
+	padding-top: 0;
+	color: #666;
+}
+
+[data-accordion] .info.on .txt {
+	display: block;
+}
+
+@media (max-width: 1024px) {
+	[data-accordion] :is(.tit button, .txt) {
+		padding: 15px;
+	}
+}
+
 /* 모달 */
 [data-modal] {
 	display: -webkit-box;

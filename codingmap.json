@@ -32,14 +32,21 @@
 		"depth2": "radio",
 		"depth3": "",
 		"id": "radio",
-		"memo": "라디오 버튼"
+		"memo": "라디오버튼"
 	},
 	{
 		"depth1": "",
 		"depth2": "select_box",
 		"depth3": "",
 		"id": "select_box",
-		"memo": "셀렉트 박스"
+		"memo": "셀렉트박스"
+	},
+	{
+		"depth1": "",
+		"depth2": "accordion",
+		"depth3": "",
+		"id": "accordion",
+		"memo": "아코디언 메뉴"
 	},
 	{
 		"depth1": "table",

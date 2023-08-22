@@ -231,9 +231,12 @@
 
 	/******************** 아코디언 메뉴 제어 ********************/
 	function handleAccordionMenus() {
-		const $accordion = $("[data-accordion] > div");
-		$accordion.on("click", function () {
-			$(this).toggleClass("on");
+		const $accordion = $("[data-accordion] .info");
+		$accordion.on("click", "button", function () {
+			const $button = $(this);
+			const isExpanded = $button.attr("aria-expanded") === "true";
+			$button.attr("aria-expanded", !isExpanded);
+			$button.parents(".info").toggleClass("on", !isExpanded);
 		});
 	}
 

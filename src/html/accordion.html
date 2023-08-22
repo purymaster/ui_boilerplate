@@ -1,0 +1,39 @@
+@@include('header.html')
+<div data-column-box>
+	<div class="code">
+		<div data-accordion>
+			<div class="info">
+				<h3 class="tit">
+					<button
+						type="button"
+						id="info1"
+						aria-controls="sect1"
+						aria-expanded="false"
+					>
+						Title1
+					</button>
+					<i data-feather="chevron-down" aria-hidden="true"></i>
+					<i data-feather="chevron-up" aria-hidden="true"></i>
+				</h3>
+				<div class="txt" id="sect1" aria-labelledby="info1">Text1</div>
+			</div>
+			<div class="info">
+				<h3 class="tit">
+					<button
+						type="button"
+						id="info2"
+						aria-controls="sect2"
+						aria-expanded="false"
+					>
+						Title2
+					</button>
+					<i data-feather="chevron-down" aria-hidden="true"></i>
+					<i data-feather="chevron-up" aria-hidden="true"></i>
+				</h3>
+				<div class="txt" id="sect2" aria-labelledby="info2">Text2</div>
+			</div>
+		</div>
+	</div>
+	<pre><code class="language-markup"></code></pre>
+</div>
+@@include('footer.html')
