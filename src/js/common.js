@@ -312,7 +312,7 @@
 			} else {
 				fileExtensionLimit = null;
 			}
-			
+
 			const fileSizeLimit = size * 1024 * 1024;
 			const oversizedFiles = newFiles.filter(
 				(file) => file.size > fileSizeLimit
@@ -374,7 +374,9 @@
 			const files = { value: [] };
 			const $uploader = $(this).find("input[type='file']");
 			const $uploadList = $(this).find(".file_list");
-			const $uploadCountLimit = $uploader.data("cnt");
+			const $uploadCountLimit = $uploader.prop("multiple")
+				? $uploader.data("cnt")
+				: null;
 			const $uploadExtensionLimit = $uploader.data("ext");
 			const $uploadSizeLimit = $uploader.data("size");
 			const $uploaderBox = $(this).find(".drag_box");
