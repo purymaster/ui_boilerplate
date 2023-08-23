@@ -190,6 +190,7 @@ textarea {
 	border: none;
 	border-radius: 0;
 	background: none;
+	color: #333;
 	font-family: inherit;
 	font-size: 100%;
 	letter-spacing: 0;
@@ -298,7 +299,7 @@ legend,
 header {
 	display: flex;
 	justify-content: flex-end;
-	padding: .5em;
+	padding: 0.5em;
 	background: var(--point-color);
 }
 
@@ -533,11 +534,13 @@ header {
 	border: 1px solid var(--secondary-color);
 }
 
-[data-input="password"] input[type="password"] {
+[data-input="password"] input[type="password"],
+[data-input="search"] input[type="text"] {
 	padding-right: 1.5em;
 }
 
-[data-input="password"] button {
+[data-input="password"] button,
+[data-input="search"] button {
 	position: absolute;
 	z-index: 0;
 	top: 50%;
@@ -546,7 +549,8 @@ header {
 	margin-top: -0.5em;
 }
 
-[data-input="password"] button svg {
+[data-input="password"] button svg,
+[data-input="search"] button svg {
 	width: 1em;
 	height: 1em;
 	color: var(--point-color);
@@ -1023,6 +1027,15 @@ header {
 		height: 30px;
 		padding: 0.25em 0.125em;
 	}
+}
+
+/* 검색폼 */
+[data-search-box] {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 5px;
+	margin: 15px 0;
 }
 
 /* 게시판 리스트 */

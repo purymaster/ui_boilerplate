@@ -2,6 +2,23 @@
 <div data-column-box>
 	<div class="code">
 		<div data-board-table>
+			<div data-search-box>
+				<div data-select-box>
+					<select>
+						<option value="menu1">menu1</option>
+						<option value="menu2">menu2</option>
+						<option value="menu3">menu3</option>
+					</select>
+					<i data-feather="chevron-down" aria-hidden="true"></i>
+				</div>
+				<div data-input="search">
+					<input type="text" />
+					<button type="button">
+						<i class="icon" data-feather="search" aria-hidden="true"></i>
+						<span class="hidden">검색</span>
+					</button>
+				</div>
+			</div>
 			<table class="center">
 				<caption>
 					테이블에 관한 정보
@@ -51,7 +68,7 @@
 						</td>
 						<td data-type="status">Waiting</td>
 					</tr>
-          <!-- <tr>
+					<!-- <tr>
             <td colspan="3" class="center">데이터가 존재하지 않습니다.</td>
           </tr> -->
 				</tbody>

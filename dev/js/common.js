@@ -303,12 +303,16 @@
 			const newFiles = Array.from(
 				isDrag ? e.originalEvent.dataTransfer.files : input.files
 			);
-			const fileExtensionLimit =
-				ext !== null && Array.isArray(ext) ?
-				ext :
-				ext !== null ?
-				ext.split("|").map((item) => item.trim()) :
-				null;
+			let fileExtensionLimit;
+
+			if (ext !== null && Array.isArray(ext)) {
+				fileExtensionLimit = ext;
+			} else if (ext !== null) {
+				fileExtensionLimit = ext.split("|").map((item) => item.trim());
+			} else {
+				fileExtensionLimit = null;
+			}
+
 			const fileSizeLimit = size * 1024 * 1024;
 			const oversizedFiles = newFiles.filter(
 				(file) => file.size > fileSizeLimit
