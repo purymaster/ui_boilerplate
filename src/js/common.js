@@ -1,11 +1,11 @@
 (function ($) {
 	/******************** 탭메뉴 제어 ********************/
 	function initTabMenu() {
-		const tabMenus = $("[data-tab-menu]");
-		const tabMenuItems = tabMenus.find("a, button");
-		const tabPanels = $("[data-tab-panel]");
+		const $tabMenus = $("[data-tab-menu]");
+		const $tabMenuItems = $tabMenus.find("a, button");
+		const $tabPanels = $("[data-tab-panel]");
 
-		tabMenus.each(function () {
+		$tabMenus.each(function () {
 			$(this)
 				.find("a, button")
 				.attr("aria-selected", false)
@@ -16,7 +16,7 @@
 				.addClass("on");
 		});
 
-		tabPanels.each(function () {
+		$tabPanels.each(function () {
 			$(this)
 				.find(".tabpanel")
 				.attr("aria-hidden", "true")
@@ -29,10 +29,10 @@
 		});
 
 		function showPanel($selectedTab) {
-			const target = $(`#${$selectedTab.attr("aria-controls")}`);
+			const $target = $(`#${$selectedTab.attr("aria-controls")}`);
 
-			tabMenuItems.each(function () {
-				const isSelected = $(this).attr("aria-controls") === target.attr("id");
+			$tabMenuItems.each(function () {
+				const isSelected = $(this).attr("aria-controls") === $target.attr("id");
 				$(this).attr("aria-selected", isSelected);
 				if (isSelected) {
 					$(this)
@@ -44,7 +44,7 @@
 				}
 			});
 
-			target
+			$target
 				.attr("aria-hidden", "false")
 				.attr("tabindex", "0")
 				.show()
@@ -54,7 +54,7 @@
 				.hide();
 		}
 
-		tabMenuItems
+		$tabMenuItems
 			.on("click", function () {
 				showPanel($(this));
 			})
@@ -107,7 +107,7 @@
 				}
 			});
 
-		tabMenus.on("keydown", function (e) {
+		$tabMenus.on("keydown", function (e) {
 			if (e.shiftKey && e.keyCode === 9) {
 				const $selectedTab = $(this).find("a, button[aria-selected='true']");
 				$selectedTab.focus();
@@ -117,24 +117,24 @@
 
 	/******************** 팝업 제어 ********************/
 	function initModal() {
-		const modal = $("[data-modal]");
+		const $modal = $("[data-modal]");
 		let isModal = false;
 		let lastFocusedElement = null;
-		let targetModal = null;
+		let $targetModal = null;
 
 		function openModal(e) {
 			e.preventDefault();
 			isModal = true;
 			lastFocusedElement = $(this);
-			targetModal = $($(this).attr("href"));
-			modal.removeClass("on");
-			targetModal.addClass("on").find(".modal").focus();
+			$targetModal = $($(this).attr("href"));
+			$modal.removeClass("on");
+			$targetModal.addClass("on").find(".modal").focus();
 		}
 
 		function closeModal() {
 			isModal = false;
-			targetModal = targetModal || $(this).parents("[data-modal]");
-			targetModal.removeClass("on");
+			$targetModal = $targetModal || $(this).parents("[data-modal]");
+			$targetModal.removeClass("on");
 			$("[data-video] iframe").attr("src", function () {
 				return $(this).data("src");
 			});
@@ -143,8 +143,8 @@
 
 		function handleKeyDown(e) {
 			const currentTabElement = document.activeElement;
-			const firstTabElement = targetModal?.find(".modal").get(0);
-			const lastTabElement = targetModal?.find(".close").get(0);
+			const firstTabElement = $targetModal?.find(".modal").get(0);
+			const lastTabElement = $targetModal?.find(".close").get(0);
 
 			const reverseTabPressed = e.shiftKey && e.keyCode === 9;
 			const tabPressed = !e.shiftKey && e.keyCode === 9;
@@ -199,28 +199,28 @@
 		};
 
 		$('[data-modal="popup"]').each(function () {
-			const popup = $(this);
-			const checkbox = popup.find('input[type="checkbox"]');
-			const cookieName = checkbox.attr("id");
+			const $popup = $(this);
+			const $checkbox = $popup.find('input[type="checkbox"]');
+			const cookieName = $checkbox.attr("id");
 			const cookieValue = "hidden";
 			const cookieDays = 1;
 
 			const hidePopup = () => {
-				popup.removeClass("on");
+				$popup.removeClass("on");
 			};
 
 			const showPopup = () => {
-				popup.addClass("on");
-				popup.find(".modal").focus();
+				$popup.addClass("on");
+				$popup.find(".modal").focus();
 			};
 
-			if (checkbox.length && getCookie(cookieName)) {
+			if ($checkbox.length && getCookie(cookieName)) {
 				hidePopup();
 			} else {
 				showPopup();
 			}
 
-			checkbox.on("change", function () {
+			$checkbox.on("change", function () {
 				if (this.checked) {
 					setCookie(cookieName, cookieValue, cookieDays);
 					hidePopup();
@@ -277,15 +277,15 @@
 				const fileName = file.name;
 				const listItem = $(`
                 <li>
-									<div class="img_wrap">
-										<img src="" alt="" />
-									</div>
-									<i class="icon" data-feather="file" aria-hidden="true"></i>
-									<div class="name" title="${fileName}">${fileName}</div>
-									<button type="button" class="delete">
-										<i class="icon" data-feather="x-circle" aria-hidden="true"></i>
-										<span class="hidden">파일 업로드 취소</span>
-									</button>
+                    <div class="img_wrap">
+                        <img src="" alt="" />
+                    </div>
+                    <i class="icon" data-feather="file" aria-hidden="true"></i>
+                    <div class="name" title="${fileName}">${fileName}</div>
+                    <button type="button" class="delete">
+                        <i class="icon" data-feather="x-circle" aria-hidden="true"></i>
+                        <span class="hidden">파일 업로드 취소</span>
+                    </button>
                 </li>
             `);
 				if (isImageFile(fileName)) {

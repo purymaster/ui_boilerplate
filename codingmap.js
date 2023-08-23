@@ -18,30 +18,30 @@ $.getJSON("codingmap.json", function (data) {
 		);
 
 		const tableColRow = `
-			<col style="width:40px;" />
-			${Array.from(
-				{ length: overallMaxDepth },
-				(_) => `<col class="depth mobile" style="width:10%;" />`
-			).join("")}
-			<col style="width:10%;" />
-			<col />
-			<col class="mobile" style="width:40px;" />
-		`;
+					<col style="width:40px;" />
+					${Array.from(
+						{ length: overallMaxDepth },
+						(_) => `<col class="depth mobile" style="width:10%;" />`
+					).join("")}
+					<col style="width:10%;" />
+					<col />
+					<col class="mobile" style="width:40px;" />
+			`;
 
 		$tableCol.append(tableColRow);
 
 		const tableHeadRow = `
-			<tr>
-				<th class="num">No</th>
-				${Array.from(
-					{ length: overallMaxDepth },
-					(_, index) => `<th class="depth">Depth${index + 1}</th>`
-				).join("")}
-				<th class="id">ID</th>
-				<th class="memo">Memo</th>
-				<th class="link">Link</th>
-			</tr>
-		`;
+					<tr>
+							<th class="num">No</th>
+							${Array.from(
+								{ length: overallMaxDepth },
+								(_, index) => `<th class="depth">Depth${index + 1}</th>`
+							).join("")}
+							<th class="id">ID</th>
+							<th class="memo">Memo</th>
+							<th class="link">Link</th>
+					</tr>
+			`;
 
 		$tableHead.append(tableHeadRow);
 
@@ -53,16 +53,16 @@ $.getJSON("codingmap.json", function (data) {
 			}).join("");
 
 			const tableBodyRow = `
-				<tr>
-					<td class="num center">${index + 1}</td>
-					${depthCells}
-					<td class="id center">${page.id}</td>
-					<td class="memo">${page.memo}</td>
-					<td class="link center">
-						<a href="dev/html/${page.id}.html" target="_blank" title="새창열림">보기</a>
-					</td>
-				</tr>
-			`;
+							<tr>
+									<td class="num center">${index + 1}</td>
+									${depthCells}
+									<td class="id center">${page.id}</td>
+									<td class="memo">${page.memo}</td>
+									<td class="link center">
+											<a href="dev/html/${page.id}.html" target="_blank" title="새창열림">보기</a>
+									</td>
+							</tr>
+					`;
 
 			$tableBody.append(tableBodyRow);
 		});
