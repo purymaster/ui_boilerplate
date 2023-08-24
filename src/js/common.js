@@ -70,12 +70,10 @@
 						e.preventDefault();
 						if ($this.is("button")) {
 							showPanel($this);
+						} else if ($this.is("a") && $this.attr("target") === "_blank") {
+							window.open($this.attr("href"));
 						} else if ($this.is("a")) {
-							if ($this.attr("target") === "_blank") {
-								window.open($this.attr("href"));
-							} else {
-								window.location.href = $this.attr("href");
-							}
+							window.location.href = $this.attr("href");
 						}
 					},
 					37: function ($this) {
@@ -150,19 +148,20 @@
 			const tabPressed = !e.shiftKey && e.keyCode === 9;
 			const escapePressed = e.keyCode === 27;
 
-			if (isModal) {
-				if (reverseTabPressed && currentTabElement === firstTabElement) {
-					e.preventDefault();
-					lastTabElement.focus();
-				}
-				if (tabPressed && currentTabElement === lastTabElement) {
-					e.preventDefault();
-					firstTabElement.focus();
-				}
-				if (escapePressed) {
-					isModal = false;
-					closeModal();
-				}
+			if (!isModal) {
+				return;
+			}
+			if (reverseTabPressed && currentTabElement === firstTabElement) {
+				e.preventDefault();
+				lastTabElement.focus();
+			}
+			if (tabPressed && currentTabElement === lastTabElement) {
+				e.preventDefault();
+				firstTabElement.focus();
+			}
+			if (escapePressed) {
+				isModal = false;
+				closeModal();
 			}
 		}
 
@@ -277,15 +276,15 @@
 				const fileName = file.name;
 				const listItem = $(`
                 <li>
-                    <div class="img_wrap">
-                        <img src="" alt="" />
-                    </div>
-                    <i class="icon" data-feather="file" aria-hidden="true"></i>
-                    <div class="name" title="${fileName}">${fileName}</div>
-                    <button type="button" class="delete">
-                        <i class="icon" data-feather="x-circle" aria-hidden="true"></i>
-                        <span class="hidden">파일 업로드 취소</span>
-                    </button>
+									<div class="img_wrap">
+										<img src="" alt="" />
+									</div>
+									<i class="icon" data-feather="file" aria-hidden="true"></i>
+									<div class="name" title="${fileName}">${fileName}</div>
+									<button type="button" class="delete">
+										<i class="icon" data-feather="x-circle" aria-hidden="true"></i>
+										<span class="hidden">파일 업로드 취소</span>
+									</button>
                 </li>
             `);
 				if (isImageFile(fileName)) {
