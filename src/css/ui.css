@@ -263,12 +263,10 @@ legend,
 }
 @supports (-webkit-appearance: none) or (-moz-appearance: none) or
   (-ms-flexbox: 1) {
-  ::-webkit-input-placeholder,
-  ::-moz-placeholder,
-  :-ms-input-placeholder,
-  :-moz-placeholder {
-    font-weight: 400;
+  ::placeholder {
+    font-weight: inherit;
     color: #ccc;
+    opacity: 1;
   }
 }
 
