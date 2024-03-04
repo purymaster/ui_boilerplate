@@ -1,58 +1,58 @@
 $.getJSON("codingmap.json", function (data) {
-	const $table = $(".map_table");
-	const $tableCol = $table.find("colgroup");
-	const $tableHead = $table.find("thead");
-	const $tableBody = $table.find("tbody");
+  const $table = $(".map_table");
+  const $tableCol = $table.find("colgroup");
+  const $tableHead = $table.find("thead");
+  const $tableBody = $table.find("tbody");
 
-	function getMaxDepth(obj) {
-		const depthKeys = Object.keys(obj)
-			.filter((key) => key.includes("depth") && obj[key] !== "")
-			.map((key) => parseInt(key.replace("depth", "")));
-		return Math.max(...depthKeys, 0);
-	}
+  function getMaxDepth(obj) {
+    const depthKeys = Object.keys(obj)
+      .filter((key) => key.includes("depth") && obj[key] !== "")
+      .map((key) => parseInt(key.replace("depth", "")));
+    return Math.max(...depthKeys, 0);
+  }
 
-	function generateTable() {
-		const overallMaxDepth = data.reduce(
-			(maxDepth, item) => Math.max(maxDepth, getMaxDepth(item)),
-			0
-		);
+  function generateTable() {
+    const overallMaxDepth = data.reduce(
+      (maxDepth, item) => Math.max(maxDepth, getMaxDepth(item)),
+      0
+    );
 
-		const tableColRow = `
+    const tableColRow = `
 					<col style="width:40px;" />
 					${Array.from(
-						{ length: overallMaxDepth },
-						(_) => `<col class="depth mobile" style="width:10%;" />`
-					).join("")}
+            { length: overallMaxDepth },
+            (_) => `<col class="depth mobile" style="width:10%;" />`
+          ).join("")}
 					<col style="width:10%;" />
 					<col />
 					<col class="mobile" style="width:40px;" />
 			`;
 
-		$tableCol.append(tableColRow);
+    $tableCol.append(tableColRow);
 
-		const tableHeadRow = `
+    const tableHeadRow = `
 					<tr>
 							<th class="num">No</th>
 							${Array.from(
-								{ length: overallMaxDepth },
-								(_, index) => `<th class="depth">Depth${index + 1}</th>`
-							).join("")}
+                { length: overallMaxDepth },
+                (_, index) => `<th class="depth">Depth${index + 1}</th>`
+              ).join("")}
 							<th class="id">ID</th>
 							<th class="memo">Memo</th>
 							<th class="link">Link</th>
 					</tr>
 			`;
 
-		$tableHead.append(tableHeadRow);
+    $tableHead.append(tableHeadRow);
 
-		data.forEach(function (page, index) {
-			const depthCells = Array.from({ length: overallMaxDepth }, (_, index) => {
-				const depthKey = `depth${index + 1}`;
-				const depthValue = page[depthKey] || "";
-				return `<td class="depth">${depthValue}</td>`;
-			}).join("");
+    data.forEach(function (page, index) {
+      const depthCells = Array.from({ length: overallMaxDepth }, (_, index) => {
+        const depthKey = `depth${index + 1}`;
+        const depthValue = page[depthKey] || "";
+        return `<td class="depth">${depthValue}</td>`;
+      }).join("");
 
-			const tableBodyRow = `
+      const tableBodyRow = `
 							<tr>
 									<td class="num center">${index + 1}</td>
 									${depthCells}
@@ -64,9 +64,9 @@ $.getJSON("codingmap.json", function (data) {
 							</tr>
 					`;
 
-			$tableBody.append(tableBodyRow);
-		});
-	}
+      $tableBody.append(tableBodyRow);
+    });
+  }
 
-	generateTable();
+  generateTable();
 });
