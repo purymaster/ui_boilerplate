@@ -2,127 +2,126 @@
 <html lang="ko">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>UI 퍼블리싱 가이드</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
-	<link rel="stylesheet" href="../css/ui.css">
-	<script src="../js/jquery-1.12.4.min.js"></script>
-	<script src="../js/common.js"></script>
-	<script src="../js/feather.min.js"></script>
-	<script src="../js/prism-1.17.1.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>UI 퍼블리싱 가이드</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
+  <link rel="stylesheet" href="../css/ui.css" />
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/feather.min.js"></script>
+  <script src="../js/prism-1.17.1.min.js"></script>
 </head>
 
 <body>
-	<div class="wrap">
-		<div class="container">
-			<header>
-				<div data-select-box>
-					<select class="theme">
-						<option value="">Select Theme</option>
-						<option value="black">Black</option>
-						<option value="brown">Brown</option>
-						<option value="darkblue">Dark Blue</option>
-						<option value="darkcyan">Dark Cyan</option>
-						<option value="darkgray">Dark Gray</option>
-						<option value="darkgreen">Dark Green</option>
-						<option value="darkmagenta">Dark Magenta</option>
-						<option value="darkolivegreen">Dark Olive Green</option>
-						<option value="darkorange">Dark Orange</option>
-						<option value="darkorchid">Dark Orchid</option>
-						<option value="darkred">Dark Red</option>
-						<option value="darksalmon">Dark Salmon</option>
-						<option value="darkseagreen">Dark Sea Green</option>
-						<option value="darkslateblue">Dark Slate Blue</option>
-						<option value="darkslategray">Dark Slate Gray</option>
-						<option value="darkturquoise">Dark Turquoise</option>
-						<option value="darkviolet">Dark Violet</option>
-						<option value="dimgray">Dim Gray</option>
-						<option value="indigo">Indigo</option>
-						<option value="maroon">Maroon</option>
-						<option value="navy">Navy</option>
-						<option value="olive">Olive</option>
-						<option value="purple">Purple</option>
-						<option value="sienna">Sienna</option>
-						<option value="teal">Teal</option>
-					</select>
-					<i data-feather="chevron-down" aria-hidden="true"></i>
-				</div>
-			</header>
+  <div class="wrap">
+    <div class="container">
+      <header>
+        <div data-select-box>
+          <select class="theme">
+            <option value="">Select Theme</option>
+            <option value="black">Black</option>
+            <option value="brown">Brown</option>
+            <option value="darkblue">Dark Blue</option>
+            <option value="darkcyan">Dark Cyan</option>
+            <option value="darkgray">Dark Gray</option>
+            <option value="darkgreen">Dark Green</option>
+            <option value="darkmagenta">Dark Magenta</option>
+            <option value="darkolivegreen">Dark Olive Green</option>
+            <option value="darkorange">Dark Orange</option>
+            <option value="darkorchid">Dark Orchid</option>
+            <option value="darkred">Dark Red</option>
+            <option value="darksalmon">Dark Salmon</option>
+            <option value="darkseagreen">Dark Sea Green</option>
+            <option value="darkslateblue">Dark Slate Blue</option>
+            <option value="darkslategray">Dark Slate Gray</option>
+            <option value="darkturquoise">Dark Turquoise</option>
+            <option value="darkviolet">Dark Violet</option>
+            <option value="dimgray">Dim Gray</option>
+            <option value="indigo">Indigo</option>
+            <option value="maroon">Maroon</option>
+            <option value="navy">Navy</option>
+            <option value="olive">Olive</option>
+            <option value="purple">Purple</option>
+            <option value="sienna">Sienna</option>
+            <option value="teal">Teal</option>
+          </select>
+          <i data-feather="chevron-down" aria-hidden="true"></i>
+        </div>
+      </header>
 
+      <div data-column-box>
+        <h2 class="column_tit">Tab Menu</h2>
+        <h3 class="cont_tit">Default</h3>
+        <div class="code">
+          <div data-tab-menu>
+            <div role="tablist">
+              <button id="menu1" type="button" role="tab" aria-selected="false" aria-controls="panel1">
+                <span>Menu1</span>
+              </button>
+              <button id="menu2" type="button" role="tab" aria-selected="false" aria-controls="panel2">
+                <span>Menu2</span>
+              </button>
+              <a href="//naver.com" role="tab" target="_blank" title="새 창 알림">
+                <span>Naver</span>
+              </a>
+            </div>
+          </div>
+          <div data-tab-panel>
+            <div id="panel1" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu1">
+              Content1
+            </div>
+            <div id="panel2" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu2">
+              Content2
+            </div>
+          </div>
+        </div>
+        <pre><code class="language-markup"></code></pre>
+      </div>
 
-			<div data-column-box>
-				<h2 class="column_tit">Tab Menu</h2>
-				<h3 class="cont_tit">Default</h3>
-				<div class="code">
-					<div data-tab-menu>
-						<div role="tablist">
-							<button id="menu1" type="button" role="tab" aria-selected="false" aria-controls="panel1">
-								<span>Menu1</span>
-							</button>
-							<button id="menu2" type="button" role="tab" aria-selected="false" aria-controls="panel2">
-								<span>Menu2</span>
-							</button>
-							<a href="//naver.com" role="tab" target="_blank" title="새 창 알림">
-								<span>Naver</span>
-							</a>
-						</div>
-					</div>
-					<div data-tab-panel>
-						<div id="panel1" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu1">
-							Content1
-						</div>
-						<div id="panel2" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu2">
-							Content2
-						</div>
-					</div>
-				</div>
-				<pre><code class="language-markup"></code></pre>
-			</div>
+      <div data-column-box>
+        <h3 class="cont_tit">Border</h3>
+        <div class="code">
+          <div data-tab-menu class="border">
+            <div role="tablist">
+              <button id="menu3" type="button" role="tab" aria-selected="false" aria-controls="panel3">
+                <span>Menu3</span>
+              </button>
+              <button id="menu4" type="button" role="tab" aria-selected="false" aria-controls="panel4">
+                <span>Menu4</span>
+              </button>
+            </div>
+          </div>
+          <div data-tab-panel>
+            <div id="panel3" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu3">
+              Content3
+            </div>
+            <div id="panel4" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu4">
+              Content4
+            </div>
+          </div>
+        </div>
+        <pre><code class="language-markup"></code></pre>
+      </div>
+    </div>
+  </div>
+  <script>
+    feather.replace();
+  </script>
+  <script>
+    $(function() {
+      $(".code").each(function() {
+        let codeContent = $(this).html();
+        codeContent = escapeHtml(codeContent);
+        $(this).next("pre").find(".language-markup").html(codeContent);
+      });
+    });
 
-			<div data-column-box>
-				<h3 class="cont_tit">Border</h3>
-				<div class="code">
-					<div data-tab-menu class="border">
-						<div role="tablist">
-							<button id="menu3" type="button" role="tab" aria-selected="false" aria-controls="panel3">
-								<span>Menu3</span>
-							</button>
-							<button id="menu4" type="button" role="tab" aria-selected="false" aria-controls="panel4">
-								<span>Menu4</span>
-							</button>
-						</div>
-					</div>
-					<div data-tab-panel>
-						<div id="panel3" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu3">
-							Content3
-						</div>
-						<div id="panel4" tabindex="0" role="tabpanel" class="tabpanel" aria-labelledby="menu4">
-							Content4
-						</div>
-					</div>
-				</div>
-				<pre><code class="language-markup"></code></pre>
-			</div>
-		</div>
-	</div>
-	<script>
-		feather.replace();
-	</script>
-	<script>
-		$(function() {
-			$(".code").each(function() {
-				let codeContent = $(this).html();
-				codeContent = escapeHtml(codeContent);
-				$(this).next("pre").find(".language-markup").html(codeContent);
-			});
-		});
-
-		function escapeHtml(text) {
-			return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-		}
-	</script>
+    function escapeHtml(text) {
+      return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
 </body>
 
 </html>

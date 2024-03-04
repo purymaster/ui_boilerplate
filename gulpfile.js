@@ -50,7 +50,7 @@ function htmlBuild() {
 				basepath: paths.srcPath.include,
 			})
 		)
-		.pipe(beautify.html({ indent_size: 2, indent_with_tabs: true }))
+		.pipe(beautify.html({ indent_size: 2 }))
 		.pipe(gulp.dest(paths.devPath.html));
 }
 
@@ -64,7 +64,7 @@ function cssBuild() {
 				cascade: false,
 			})
 		)
-		.pipe(beautify.css({ indent_size: 2, indent_with_tabs: true }))
+		.pipe(beautify.css({ indent_size: 2 }))
 		.pipe(gulp.dest(paths.devPath.css));
 }
 
@@ -75,7 +75,7 @@ function jsBuild() {
 		.pipe(
 			gulpIf(
 				(file) => !file.path.endsWith(".min.js"),
-				beautify({ indent_size: 2, indent_with_tabs: true })
+				beautify({ indent_size: 2 })
 			)
 		)
 		.pipe(gulp.dest(paths.devPath.js));

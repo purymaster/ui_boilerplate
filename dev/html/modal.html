@@ -2,152 +2,151 @@
 <html lang="ko">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>UI 퍼블리싱 가이드</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
-	<link rel="stylesheet" href="../css/ui.css">
-	<script src="../js/jquery-1.12.4.min.js"></script>
-	<script src="../js/common.js"></script>
-	<script src="../js/feather.min.js"></script>
-	<script src="../js/prism-1.17.1.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>UI 퍼블리싱 가이드</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
+  <link rel="stylesheet" href="../css/ui.css" />
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/feather.min.js"></script>
+  <script src="../js/prism-1.17.1.min.js"></script>
 </head>
 
 <body>
-	<div class="wrap">
-		<div class="container">
-			<header>
-				<div data-select-box>
-					<select class="theme">
-						<option value="">Select Theme</option>
-						<option value="black">Black</option>
-						<option value="brown">Brown</option>
-						<option value="darkblue">Dark Blue</option>
-						<option value="darkcyan">Dark Cyan</option>
-						<option value="darkgray">Dark Gray</option>
-						<option value="darkgreen">Dark Green</option>
-						<option value="darkmagenta">Dark Magenta</option>
-						<option value="darkolivegreen">Dark Olive Green</option>
-						<option value="darkorange">Dark Orange</option>
-						<option value="darkorchid">Dark Orchid</option>
-						<option value="darkred">Dark Red</option>
-						<option value="darksalmon">Dark Salmon</option>
-						<option value="darkseagreen">Dark Sea Green</option>
-						<option value="darkslateblue">Dark Slate Blue</option>
-						<option value="darkslategray">Dark Slate Gray</option>
-						<option value="darkturquoise">Dark Turquoise</option>
-						<option value="darkviolet">Dark Violet</option>
-						<option value="dimgray">Dim Gray</option>
-						<option value="indigo">Indigo</option>
-						<option value="maroon">Maroon</option>
-						<option value="navy">Navy</option>
-						<option value="olive">Olive</option>
-						<option value="purple">Purple</option>
-						<option value="sienna">Sienna</option>
-						<option value="teal">Teal</option>
-					</select>
-					<i data-feather="chevron-down" aria-hidden="true"></i>
-				</div>
-			</header>
+  <div class="wrap">
+    <div class="container">
+      <header>
+        <div data-select-box>
+          <select class="theme">
+            <option value="">Select Theme</option>
+            <option value="black">Black</option>
+            <option value="brown">Brown</option>
+            <option value="darkblue">Dark Blue</option>
+            <option value="darkcyan">Dark Cyan</option>
+            <option value="darkgray">Dark Gray</option>
+            <option value="darkgreen">Dark Green</option>
+            <option value="darkmagenta">Dark Magenta</option>
+            <option value="darkolivegreen">Dark Olive Green</option>
+            <option value="darkorange">Dark Orange</option>
+            <option value="darkorchid">Dark Orchid</option>
+            <option value="darkred">Dark Red</option>
+            <option value="darksalmon">Dark Salmon</option>
+            <option value="darkseagreen">Dark Sea Green</option>
+            <option value="darkslateblue">Dark Slate Blue</option>
+            <option value="darkslategray">Dark Slate Gray</option>
+            <option value="darkturquoise">Dark Turquoise</option>
+            <option value="darkviolet">Dark Violet</option>
+            <option value="dimgray">Dim Gray</option>
+            <option value="indigo">Indigo</option>
+            <option value="maroon">Maroon</option>
+            <option value="navy">Navy</option>
+            <option value="olive">Olive</option>
+            <option value="purple">Purple</option>
+            <option value="sienna">Sienna</option>
+            <option value="teal">Teal</option>
+          </select>
+          <i data-feather="chevron-down" aria-hidden="true"></i>
+        </div>
+      </header>
 
+      <div data-column-box>
+        <h2 class="column_tit">Modal</h2>
+        <h3 class="cont_tit">Default</h3>
+        <ul data-ctr-btn>
+          <li>
+            <a href="#modal1" data-open-modal>Open Modal</a>
+          </li>
+        </ul>
+        <div class="code">
+          <div data-modal id="modal1" aria-haspopup="dialog" title="대화상자" hidden>
+            <section class="modal" role="dialog" aria-label="Popup Title" aria-modal="true" tabindex="0">
+              <h1>Popup Title</h1>
+              <div class="modal_cont">
+                Popup Content
+                <a href="#none">Test Link</a>
+                <a href="#none">Test Link</a>
+              </div>
+              <button class="close">
+                <i data-feather="x" aria-hidden="true">팝업 닫기</i>
+              </button>
+            </section>
+          </div>
+        </div>
+        <pre><code class="language-markup"></code></pre>
+      </div>
 
-			<div data-column-box>
-				<h2 class="column_tit">Modal</h2>
-				<h3 class="cont_tit">Default</h3>
-				<ul data-ctr-btn>
-					<li>
-						<a href="#modal1" data-open-modal>Open Modal</a>
-					</li>
-				</ul>
-				<div class="code">
-					<div data-modal id="modal1" aria-haspopup="dialog" title="대화상자" hidden>
-						<section class="modal" role="dialog" aria-label="Popup Title" aria-modal="true" tabindex="0">
-							<h1>Popup Title</h1>
-							<div class="modal_cont">
-								Popup Content
-								<a href="#none">Test Link</a>
-								<a href="#none">Test Link</a>
-							</div>
-							<button class="close">
-								<i data-feather="x" aria-hidden="true">팝업 닫기</i>
-							</button>
-						</section>
-					</div>
-				</div>
-				<pre><code class="language-markup"></code></pre>
-			</div>
+      <div data-column-box>
+        <h3 class="cont_tit">Video</h3>
+        <ul data-ctr-btn>
+          <li>
+            <a href="#modal2" data-open-modal>Open Modal</a>
+          </li>
+        </ul>
+        <div class="code">
+          <div data-modal id="modal2" aria-haspopup="dialog" title="대화상자" hidden>
+            <section class="modal video" role="dialog" aria-label="Video Title" aria-modal="true" tabindex="0">
+              <div class="video_wrap" data-video>
+                <iframe src="https://www.youtube.com/embed/GWDvTW7IpUM" data-src="https://www.youtube.com/embed/GWDvTW7IpUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <button class="close">
+                <i data-feather="x" aria-hidden="true">팝업 닫기</i>
+              </button>
+            </section>
+          </div>
+        </div>
+        <pre><code class="language-markup"></code></pre>
+      </div>
 
-			<div data-column-box>
-				<h3 class="cont_tit">Video</h3>
-				<ul data-ctr-btn>
-					<li>
-						<a href="#modal2" data-open-modal>Open Modal</a>
-					</li>
-				</ul>
-				<div class="code">
-					<div data-modal id="modal2" aria-haspopup="dialog" title="대화상자" hidden>
-						<section class="modal video" role="dialog" aria-label="Video Title" aria-modal="true" tabindex="0">
-							<div class="video_wrap" data-video>
-								<iframe src="https://www.youtube.com/embed/GWDvTW7IpUM" data-src="https://www.youtube.com/embed/GWDvTW7IpUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-							</div>
-							<button class="close">
-								<i data-feather="x" aria-hidden="true">팝업 닫기</i>
-							</button>
-						</section>
-					</div>
-				</div>
-				<pre><code class="language-markup"></code></pre>
-			</div>
+      <div data-column-box>
+        <h3 class="cont_tit">Banner(키보드 접근성 보완 미처리)</h3>
+        <ul data-ctr-btn>
+          <li>
+            <a href="#modal3" data-open-modal>Open Modal</a>
+          </li>
+        </ul>
+        <div class="code">
+          <div data-modal="popup" id="modal3" aria-haspopup="dialog" title="대화상자" hidden>
+            <section class="modal banner" role="dialog" aria-label="Banner Title" aria-modal="true" tabindex="0">
+              <a href="#none">
+                <img src="https://picsum.photos/seed/picsum/500/700" alt="" />
+              </a>
+              <div style="padding: 0.25em">
+                <ul data-option>
+                  <li>
+                    <input type="checkbox" name="nopopup" id="popup1" />
+                    <label for="popup1">Don't show this popup for 24 hours</label>
+                  </li>
+                </ul>
+              </div>
+              <button class="close">
+                <i data-feather="x" aria-hidden="true"></i>
+                <span class="hidden">팝업 닫기</span>
+              </button>
+            </section>
+          </div>
+        </div>
+        <pre><code class="language-markup"></code></pre>
+      </div>
+    </div>
+  </div>
+  <script>
+    feather.replace();
+  </script>
+  <script>
+    $(function() {
+      $(".code").each(function() {
+        let codeContent = $(this).html();
+        codeContent = escapeHtml(codeContent);
+        $(this).next("pre").find(".language-markup").html(codeContent);
+      });
+    });
 
-			<div data-column-box>
-				<h3 class="cont_tit">Banner(키보드 접근성 보완 미처리)</h3>
-				<ul data-ctr-btn>
-					<li>
-						<a href="#modal3" data-open-modal>Open Modal</a>
-					</li>
-				</ul>
-				<div class="code">
-					<div data-modal="popup" id="modal3" aria-haspopup="dialog" title="대화상자" hidden>
-						<section class="modal banner" role="dialog" aria-label="Banner Title" aria-modal="true" tabindex="0">
-							<a href="#none">
-								<img src="https://picsum.photos/seed/picsum/500/700" alt="" />
-							</a>
-							<div style="padding: 0.25em">
-								<ul data-option>
-									<li>
-										<input type="checkbox" name="nopopup" id="popup1" />
-										<label for="popup1">Don't show this popup for 24 hours</label>
-									</li>
-								</ul>
-							</div>
-							<button class="close">
-								<i data-feather="x" aria-hidden="true"></i>
-								<span class="hidden">팝업 닫기</span>
-							</button>
-						</section>
-					</div>
-				</div>
-				<pre><code class="language-markup"></code></pre>
-			</div>
-		</div>
-	</div>
-	<script>
-		feather.replace();
-	</script>
-	<script>
-		$(function() {
-			$(".code").each(function() {
-				let codeContent = $(this).html();
-				codeContent = escapeHtml(codeContent);
-				$(this).next("pre").find(".language-markup").html(codeContent);
-			});
-		});
-
-		function escapeHtml(text) {
-			return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-		}
-	</script>
+    function escapeHtml(text) {
+      return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
 </body>
 
 </html>
