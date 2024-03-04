@@ -260,6 +260,7 @@ i {
 	box-shadow: none;
 }
 
+[readonly],
 :disabled {
 	background: #f1f1f1 !important;
 	cursor: not-allowed !important;
@@ -1804,11 +1805,13 @@ header {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	opacity: 0;
 }
 
 [data-modal].on {
 	visibility: visible;
 	z-index: 101;
+	opacity: 1;
 }
 
 [data-modal] .modal {
