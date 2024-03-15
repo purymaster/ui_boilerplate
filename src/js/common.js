@@ -279,10 +279,10 @@
 									<div class="img_wrap">
 										<img src="" alt="" />
 									</div>
-									<i class="icon" data-feather="file" aria-hidden="true"></i>
+									<i class="icon ri-file-3-line"></i>
 									<div class="name" title="${fileName}">${fileName}</div>
 									<button type="button" class="delete">
-										<i class="icon" data-feather="x-circle" aria-hidden="true"></i>
+										<i class="icon ri-close-circle-line"></i>
 										<span class="hidden">파일 업로드 취소</span>
 									</button>
                 </li>

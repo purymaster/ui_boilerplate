@@ -13,6 +13,7 @@
   --youtube-color: red;
   --facebook-color: #4267b2;
   --twitter-color: #1da1f2;
+  --twitterx-color: #000;
 }
 
 /*=========================================================
@@ -181,6 +182,8 @@ body {
   word-break: keep-all;
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 input[type="text"],
@@ -555,7 +558,7 @@ header {
   z-index: 1;
   line-height: 1.5em;
   padding: 0.25em 0.5em;
-  padding-right: 1.25em;
+  padding-right: 1em;
 }
 
 [data-select-box].full,
@@ -563,15 +566,16 @@ header {
   width: 100%;
 }
 
-[data-select-box] svg {
+[data-select-box] i {
   position: absolute;
   z-index: 0;
   top: 50%;
-  right: 0.25em;
-  width: 1em;
-  height: 1em;
+  right: 0;
   margin-top: -0.5em;
   color: var(--point-color);
+  height: 1em;
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
 }
 
 /* 입력폼 */
@@ -637,10 +641,9 @@ header {
   margin-top: -0.5em;
 }
 
-[data-input="password"] button svg,
-[data-input="search"] button svg {
-  width: 1em;
-  height: 1em;
+[data-input="password"] button i,
+[data-input="search"] button i {
+  font-size: 1.2em;
   color: var(--point-color);
 }
 
@@ -739,9 +742,8 @@ header {
   color: var(--point-color);
 }
 
-[data-input="file"] .file_list svg {
-  width: 1.5em;
-  height: 1.5em;
+[data-input="file"] .file_list i {
+  font-size: 1.5em;
 }
 
 [data-input="file"] .drag_box {
@@ -794,6 +796,12 @@ header {
   align-items: center;
   gap: 5px;
   width: 100%;
+}
+
+[data-input="file"] .drag_box .drag_info i {
+  font-size: 1.5em;
+  -webkit-transform: translateY(0.05em);
+  transform: translateY(0.05em);
 }
 
 [data-input="file"] .drag_box .file_list:has(li)+.drag_info {
@@ -898,10 +906,10 @@ header {
   color: #fff;
 }
 
-[data-ctr-btn] li :is(a, button, label) svg {
-  width: 1.2em;
-  height: 1.2em;
+[data-ctr-btn] li :is(a, button, label) i {
   margin: 0 5px;
+  -webkit-transform: translateY(0.12em);
+  transform: translateY(0.12em);
 }
 
 [data-ctr-btn] .submit.outline {
@@ -924,6 +932,11 @@ header {
   border-color: var(--twitter-color);
 }
 
+[data-ctr-btn] .twitterx.outline {
+  color: var(--twitterx-color);
+  border-color: var(--twitterx-color);
+}
+
 [data-ctr-btn] .submit:not(.outline) {
   border-color: var(--point-color);
   background-color: var(--point-color);
@@ -944,6 +957,11 @@ header {
   background-color: var(--twitter-color);
 }
 
+[data-ctr-btn] .twitterx:not(.outline) {
+  border-color: var(--twitterx-color);
+  background-color: var(--twitterx-color);
+}
+
 [data-ctr-btn] .submit.outline:hover {
   color: #fff;
   background-color: var(--point-color);
@@ -962,6 +980,11 @@ header {
 [data-ctr-btn] .twitter.outline:hover {
   color: #fff;
   background-color: var(--twitter-color);
+}
+
+[data-ctr-btn] .twitterx.outline:hover {
+  color: #fff;
+  background-color: var(--twitterx-color);
 }
 
 @media (max-width: 1024px) {
@@ -1272,13 +1295,6 @@ header {
   white-space: nowrap;
 }
 
-[data-board-table] [data-type="title"] .icon {
-  width: 1em;
-  height: 1em;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-}
-
 @media (max-width: 1024px) {
   [data-board-table] :is(table, thead, tbody, tr, th, td) {
     display: -webkit-box;
@@ -1434,9 +1450,10 @@ header {
   color: var(--secondary-color);
 }
 
-[data-gallery] .txt_wrap svg {
-  width: 1em;
-  height: 1em;
+[data-gallery] .txt_wrap i {
+  font-size: 1.2em;
+  -webkit-transform: translateY(0.12em);
+  transform: translateY(0.12em);
 }
 
 @media (max-width: 1024px) {
@@ -1475,7 +1492,7 @@ header {
   font-weight: 700;
 }
 
-[data-board-view] .view_header h1 svg {
+[data-board-view] .view_header h1 i {
   width: 1em;
   height: 1em;
 }
@@ -1501,10 +1518,11 @@ header {
   color: var(--secondary-color);
 }
 
-[data-board-view] .view_header .info li svg {
-  width: 1em;
-  height: 1em;
+[data-board-view] .view_header .info li i {
+  font-size: 1.2em;
   margin-right: 5px;
+  -webkit-transform: translateY(0.12em);
+  transform: translateY(0.12em);
 }
 
 [data-board-view] .view_body {
@@ -1543,10 +1561,11 @@ header {
   white-space: nowrap;
 }
 
-[data-board-view] .view_body .download svg {
-  width: 1em;
-  height: 1em;
+[data-board-view] .view_body .download i {
+  font-size: 1.2em;
   margin-right: 5px;
+  -webkit-transform: translateY(0.12em);
+  transform: translateY(0.12em);
 }
 
 [data-board-view] .view_body .paging {
@@ -1575,10 +1594,11 @@ header {
   margin-right: 15px;
 }
 
-[data-board-view] .view_body .paging span svg {
-  width: 1em;
-  height: 1em;
+[data-board-view] .view_body .paging span i {
+  font-size: 1.2em;
   margin-right: 5px;
+  -webkit-transform: translateY(0.05em);
+  transform: translateY(0.05em);
 }
 
 [data-board-view] .view_body .paging p {
@@ -1626,9 +1646,8 @@ header {
   font-weight: 700;
 }
 
-[data-paging] svg {
-  width: 1.5em;
-  height: 1.5em;
+[data-paging] i {
+  font-size: 1.5em;
 }
 
 /* 정보 입력폼 */
@@ -1638,8 +1657,8 @@ header {
 }
 
 [data-input-form] .essential {
-  width: 0.5em;
-  height: 0.5em;
+  font-weight: 700;
+  font-size: 0.75em;
   color: var(--alert-color);
   fill: var(--alert-color);
 }
@@ -1679,9 +1698,8 @@ header {
   margin-top: 0.5em;
 }
 
-[data-input-form] td .info svg {
-  width: 1em;
-  height: 1em;
+[data-input-form] td .info i {
+  font-size: 1.2em;
   vertical-align: middle;
 }
 
@@ -1760,24 +1778,23 @@ header {
   font-weight: 700;
 }
 
-[data-accordion] .tit svg {
+[data-accordion] .tit i {
   display: none;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 1.5em;
-  height: 1.5em;
+  font-size: 1.5em;
   margin-right: 30px;
 }
 
-[data-accordion] .tit svg:first-of-type {
+[data-accordion] .tit i:first-of-type {
   display: block;
 }
 
-[data-accordion] .info.on .tit svg:first-of-type {
+[data-accordion] .info.on .tit i:first-of-type {
   display: none;
 }
 
-[data-accordion] .info.on .tit svg:last-of-type {
+[data-accordion] .info.on .tit i:last-of-type {
   display: block;
 }
 
@@ -1797,7 +1814,7 @@ header {
     padding: 15px;
   }
 
-  [data-accordion] .tit svg {
+  [data-accordion] .tit i {
     margin-right: 15px;
   }
 
@@ -1910,6 +1927,7 @@ header {
   height: 50px;
   background: var(--point-color);
   color: #fff;
+  font-size: 2em;
 }
 
 @media (max-width: 1024px) {

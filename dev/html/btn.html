@@ -8,9 +8,9 @@
   <title>UI 퍼블리싱 가이드</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
   <link rel="stylesheet" href="../css/ui.css" />
-  <script src="../js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="../css/remixicon.css" />
+  <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/common.js"></script>
-  <script src="../js/feather.min.js"></script>
   <script src="../js/prism-1.17.1.min.js"></script>
 </head>
 
@@ -19,7 +19,7 @@
     <div class="container">
       <header>
         <div data-select-box>
-          <select class="theme">
+          <select class="theme" title="테마 색상 선택">
             <option value="">Select Theme</option>
             <option value="black">Black</option>
             <option value="brown">Brown</option>
@@ -47,7 +47,7 @@
             <option value="sienna">Sienna</option>
             <option value="teal">Teal</option>
           </select>
-          <i data-feather="chevron-down" aria-hidden="true"></i>
+          <i class="ri-arrow-down-s-fill"></i>
         </div>
       </header>
 
@@ -129,20 +129,20 @@
 
       <div data-column-box>
         <h3 class="cont_tit">Icon</h3>
-        Feather Icon :
-        <a href="https://feathericons.com/" target="_blank">https://feathericons.com/</a>
+        Remix Icon :
+        <a href="https://remixicon.com/" target="_blank" rel="noopener">https://remixicon.com/</a>
         <div class="code">
           <ul data-ctr-btn>
             <li>
               <button type="button">
-                <i data-feather="download" aria-hidden="true"></i>
+                <i class="ri-download-2-line"></i>
                 Download
               </button>
             </li>
             <li>
               <button type="button">
                 Download
-                <i data-feather="download" aria-hidden="true"></i>
+                <i class="ri-download-2-line"></i>
               </button>
             </li>
           </ul>
@@ -156,20 +156,26 @@
           <ul data-ctr-btn>
             <li>
               <button type="button" class="youtube">
-                <i data-feather="youtube" aria-hidden="true"></i>
+                <i class="ri-youtube-line"></i>
                 Youtube
               </button>
             </li>
             <li>
               <button type="button" class="facebook">
-                <i data-feather="facebook" aria-hidden="true"></i>
+                <i class="ri-facebook-line"></i>
                 Facebook
               </button>
             </li>
             <li>
               <button type="button" class="twitter">
-                <i data-feather="twitter" aria-hidden="true"></i>
+                <i class="ri-twitter-line"></i>
                 Twitter
+              </button>
+            </li>
+            <li>
+              <button type="button" class="twitterx">
+                <i class="ri-twitter-x-line"></i>
+                X
               </button>
             </li>
           </ul>
@@ -190,9 +196,6 @@
       </div>
     </div>
   </div>
-  <script>
-    feather.replace();
-  </script>
   <script>
     $(function() {
       $(".code").each(function() {

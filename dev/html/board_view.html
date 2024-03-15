@@ -8,9 +8,9 @@
   <title>UI 퍼블리싱 가이드</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
   <link rel="stylesheet" href="../css/ui.css" />
-  <script src="../js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="../css/remixicon.css" />
+  <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/common.js"></script>
-  <script src="../js/feather.min.js"></script>
   <script src="../js/prism-1.17.1.min.js"></script>
 </head>
 
@@ -19,7 +19,7 @@
     <div class="container">
       <header>
         <div data-select-box>
-          <select class="theme">
+          <select class="theme" title="테마 색상 선택">
             <option value="">Select Theme</option>
             <option value="black">Black</option>
             <option value="brown">Brown</option>
@@ -47,7 +47,7 @@
             <option value="sienna">Sienna</option>
             <option value="teal">Teal</option>
           </select>
-          <i data-feather="chevron-down" aria-hidden="true"></i>
+          <i class="ri-arrow-down-s-fill"></i>
         </div>
       </header>
 
@@ -60,23 +60,19 @@
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                   eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
                   ad minim veniam, quis nostrud exercitation ullamco
-                  <i class="icon" data-feather="lock" aria-hidden="true"></i>
-                  <span class="hidden">비밀글</span>
+                  <i class="icon ri-lock-2-line"><span class="hidden">비밀글</span></i>
                 </h1>
                 <ul class="info">
                   <li class="time">
-                    <i data-feather="user" aria-hidden="true"></i>
-                    <span class="hidden">작성자</span>
+                    <i class="ri-user-2-line"><span class="hidden">작성자</span></i>
                     Lorem
                   </li>
                   <li class="time">
-                    <i data-feather="eye" aria-hidden="true"></i>
-                    <span class="hidden">조회수</span>
+                    <i class="ri-eye-line"><span class="hidden">조회수</span></i>
                     9999
                   </li>
                   <li class="time">
-                    <i data-feather="clock" aria-hidden="true"></i>
-                    <span class="hidden">작성시간</span>
+                    <i class="ri-time-line"><span class="hidden">작성시간</span></i>
                     9999.99.99
                   </li>
                 </ul>
@@ -104,8 +100,7 @@
                   <ul>
                     <li>
                       <a href="#">
-                        <i class="icon" data-feather="file" aria-hidden="true"></i>
-                        <span class="hidden">첨부파일</span>
+                        <i class="icon ri-file-3-line"><span class="hidden">첨부파일</span></i>
                         <div class="tit">
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                           do eiusmod tempor incididunt ut labore et dolore magna
@@ -116,15 +111,13 @@
                     </li>
                     <li>
                       <a href="#">
-                        <i class="icon" data-feather="file" aria-hidden="true"></i>
-                        <span class="hidden">첨부파일</span>
+                        <i class="icon ri-file-3-line"><span class="hidden">첨부파일</span></i>
                         <div class="tit">Lorem ipsum dolor sit amet</div>
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i class="icon" data-feather="file" aria-hidden="true"></i>
-                        <span class="hidden">첨부파일</span>
+                        <i class="icon ri-file-3-line"><span class="hidden">첨부파일</span></i>
                         <div class="tit">Lorem ipsum dolor sit amet</div>
                       </a>
                     </li>
@@ -133,7 +126,7 @@
                 <div class="paging">
                   <a href="#">
                     <span>
-                      <i data-feather="chevron-up" aria-hidden="true"></i>
+                      <i class="ri-arrow-up-s-line"></i>
                       이전 페이지
                     </span>
                     <p>
@@ -144,7 +137,7 @@
                   </a>
                   <a href="#">
                     <span>
-                      <i data-feather="chevron-down" aria-hidden="true"></i>
+                      <i class="ri-arrow-down-s-line"></i>
                       다음 페이지
                     </span>
                     <p>
@@ -162,9 +155,6 @@
       </div>
     </div>
   </div>
-  <script>
-    feather.replace();
-  </script>
   <script>
     $(function() {
       $(".code").each(function() {

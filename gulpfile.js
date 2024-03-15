@@ -88,17 +88,25 @@ function imageBuild() {
     .pipe(gulp.dest(paths.devPath.img));
 }
 
+function fontBuild() {
+  return gulp
+    .src(paths.srcPath.font, { since: gulp.lastRun(fontBuild) })
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.devPath.font));
+}
+
 function watcher() {
   watch(paths.srcPath.html, series(htmlBuild, reload));
   watch(paths.srcPath.include, series(htmlBuild, reload));
   watch(paths.srcPath.css, series(cssBuild, reload));
   watch(paths.srcPath.js, series(jsBuild, reload));
   watch(paths.srcPath.img, series(imageBuild, reload));
+  watch(paths.srcPath.font, series(fontBuild, reload));
 }
 
 exports.default = series(
   init,
-  parallel(htmlBuild, cssBuild, jsBuild, imageBuild),
+  parallel(htmlBuild, cssBuild, jsBuild, imageBuild, fontBuild),
   browserSync,
   watcher
 );

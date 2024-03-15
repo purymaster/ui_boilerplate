@@ -8,9 +8,9 @@
   <title>UI 퍼블리싱 가이드</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" />
   <link rel="stylesheet" href="../css/ui.css" />
-  <script src="../js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="../css/remixicon.css" />
+  <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/common.js"></script>
-  <script src="../js/feather.min.js"></script>
   <script src="../js/prism-1.17.1.min.js"></script>
 </head>
 
@@ -19,7 +19,7 @@
     <div class="container">
       <header>
         <div data-select-box>
-          <select class="theme">
+          <select class="theme" title="테마 색상 선택">
             <option value="">Select Theme</option>
             <option value="black">Black</option>
             <option value="brown">Brown</option>
@@ -47,7 +47,7 @@
             <option value="sienna">Sienna</option>
             <option value="teal">Teal</option>
           </select>
-          <i data-feather="chevron-down" aria-hidden="true"></i>
+          <i class="ri-arrow-down-s-fill"></i>
         </div>
       </header>
 
@@ -96,7 +96,8 @@
           <ul data-option class="single">
             <li>
               <label>
-                <input type="radio" name="radio" id="radio6" />
+                <input type="radio" name="radio" id="radio6" title="선택" />
+                <span class="hidden">선택</span>
               </label>
             </li>
           </ul>
@@ -105,9 +106,6 @@
       </div>
     </div>
   </div>
-  <script>
-    feather.replace();
-  </script>
   <script>
     $(function() {
       $(".code").each(function() {

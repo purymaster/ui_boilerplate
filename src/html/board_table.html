@@ -4,18 +4,17 @@
     <div data-board-table>
       <div data-search-box>
         <div data-select-box>
-          <select>
+          <select title="검색어 기준 선택">
             <option value="menu1">menu1</option>
             <option value="menu2">menu2</option>
             <option value="menu3">menu3</option>
           </select>
-          <i data-feather="chevron-down" aria-hidden="true"></i>
+          <i class="ri-arrow-down-s-fill"></i>
         </div>
         <div data-input="search" role="search">
-          <input type="text" />
+          <input type="text" title="검색어 입력" />
           <button type="button">
-            <i class="icon" data-feather="search" aria-hidden="true"></i>
-            <span class="hidden">검색</span>
+            <i class="icon ri-search-line"><span class="hidden">검색</span></i>
           </button>
         </div>
       </div>
@@ -46,10 +45,12 @@
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 </p>
-                <i class="icon" data-feather="lock" aria-hidden="true"></i>
-                <span class="hidden">비밀글</span>
-                <i class="icon" data-feather="file" aria-hidden="true"></i>
-                <span class="hidden">첨부파일 있음</span>
+                <i class="icon ri-lock-2-line"
+                  ><span class="hidden">비밀글</span></i
+                >
+                <i class="icon ri-file-3-line"
+                  ><span class="hidden">첨부파일 있음</span></i
+                >
               </a>
             </td>
             <td data-type="status">Reply</td>

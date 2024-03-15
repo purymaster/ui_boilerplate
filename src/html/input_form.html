@@ -53,7 +53,7 @@
   <div class="code">
     <form action="" role="form" data-input-form>
       <p class="notice">
-        <i data-feather="star" aria-hidden="true" class="essential"></i>
+        <i class="essential ri-asterisk"></i>
         Required fields
       </p>
       <table>
@@ -72,8 +72,9 @@
           <tr>
             <th scope="row">
               <label for="input1">
-                <i data-feather="star" aria-hidden="true" class="essential"></i>
-                <span class="hidden">Required field</span>
+                <i class="essential ri-asterisk"
+                  ><span class="hidden">Required field</span></i
+                >
                 Default
               </label>
             </th>
@@ -96,7 +97,7 @@
               </div>
               <div class="info">
                 <p role="alert">
-                  <i data-feather="alert-circle" aria-hidden="true"></i>
+                  <i class="ri-error-warning-line"></i>
                   This is alert message.
                 </p>
               </div>
@@ -112,7 +113,7 @@
               </div>
               <div class="info">
                 <p role="status">
-                  <i data-feather="check-circle" aria-hidden="true"></i>
+                  <i class="ri-checkbox-circle-line"></i>
                   This is allow message.
                 </p>
               </div>
@@ -135,13 +136,11 @@
             <td>
               <div data-input="password" class="box">
                 <input type="password" id="input5" />
-                <button>
-                  <i data-feather="eye" aria-hidden="true"></i>
-                  <span class="hidden">비밀번호 보이기</span>
-                  <!-- 
-										<i data-feather="eye-off" aria-hidden="true"></i>
-										<span class="hidden">비밀번호 감추기</span>
-									 -->
+                <button type="button">
+                  <i class="ri-eye-line"
+                    ><span class="hidden">비밀번호 보이기</span></i
+                  >
+                  <!-- <i class="ri-eye-off-line"><span class="hidden">비밀번호 감추기</span></i> -->
                 </button>
               </div>
             </td>
@@ -157,7 +156,7 @@
                   <option value="menu2">menu2</option>
                   <option value="menu3">menu3</option>
                 </select>
-                <i data-feather="chevron-down" aria-hidden="true"></i>
+                <i class="ri-arrow-down-s-fill"></i>
               </div>
             </td>
           </tr>
@@ -174,7 +173,7 @@
                       <option value="02">02</option>
                       <option value="010">010</option>
                     </select>
-                    <i data-feather="chevron-down" aria-hidden="true"></i>
+                    <i class="ri-arrow-down-s-fill"></i>
                   </div>
                   <span>-</span>
                   <input type="text" maxlength="4" title="국번 3~4자리" />
@@ -200,7 +199,7 @@
                       <option value="naver.com">naver.com</option>
                       <option value="custom">직접입력</option>
                     </select>
-                    <i data-feather="chevron-down" aria-hidden="true"></i>
+                    <i class="ri-arrow-down-s-fill"></i>
                   </div>
                 </div>
               </fieldset>
@@ -266,7 +265,7 @@
                       <label for="radio3">Value3</label>
                     </li>
                   </ul>
-                  <input type="text" disabled />
+                  <input type="text" title="직접 입력" disabled />
                 </div>
               </fieldset>
             </td>
@@ -298,7 +297,7 @@
                       <label for="check3">Value3</label>
                     </li>
                   </ul>
-                  <input type="text" disabled />
+                  <input type="text" title="직접 입력" disabled />
                 </div>
               </fieldset>
             </td>
@@ -353,7 +352,7 @@
                   <div class="drag_box">
                     <ul class="file_list"></ul>
                     <div class="drag_info">
-                      <i data-feather="file-plus" aria-hidden="true"></i>
+                      <i class="ri-file-add-line"></i>
                       Drag and drop upload files
                     </div>
                   </div>
