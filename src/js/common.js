@@ -275,18 +275,18 @@
       files.forEach((file) => {
         const fileName = file.name;
         const listItem = $(`
-                <li>
-									<div class="img_wrap">
-										<img src="" alt="" />
-									</div>
-									<i class="icon ri-file-3-line"></i>
-									<div class="name" title="${fileName}">${fileName}</div>
-									<button type="button" class="delete">
-										<i class="icon ri-close-circle-line"></i>
-										<span class="hidden">파일 업로드 취소</span>
-									</button>
-                </li>
-            `);
+        <li>
+          <div class="img_wrap">
+            <img src="" alt="" />
+          </div>
+          <i class="icon ri-file-3-line"></i>
+          <div class="name" title="${fileName}">${fileName}</div>
+          <button type="button" class="delete">
+            <i class="icon ri-close-circle-line"></i>
+            <span class="hidden">파일 업로드 취소</span>
+          </button>
+        </li>
+        `);
         if (isImageFile(fileName)) {
           listItem.find(".img_wrap img").attr("src", URL.createObjectURL(file));
         } else {
