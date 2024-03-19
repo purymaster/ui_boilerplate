@@ -279,11 +279,14 @@
           <div class="img_wrap">
             <img src="" alt="" />
           </div>
-          <i class="icon ri-file-3-line"></i>
+          <i class="icon ri-file-3-line">
+            <span class="hidden">첨부파일</span>
+          </i>
           <div class="name" title="${fileName}">${fileName}</div>
           <button type="button" class="delete">
-            <i class="icon ri-close-circle-line"></i>
-            <span class="hidden">파일 업로드 취소</span>
+            <i class="icon ri-close-circle-line">
+              <span class="hidden">파일 업로드 취소</span>
+            </i>
           </button>
         </li>
         `);
@@ -293,7 +296,6 @@
           listItem.find(".img_wrap").hide();
         }
         list.append(listItem);
-        feather.replace();
       });
     }
 
