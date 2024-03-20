@@ -14,6 +14,16 @@
   --facebook-color: #4267b2;
   --twitter-color: #1da1f2;
   --twitterx-color: #000;
+  --instagram-background-color: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  --instagram-border-color: linear-gradient(to right, #fd5949 0%, #285aeb 100%);
+  --instagram-default-color: #d6249f;
 }
 
 /*=========================================================
@@ -784,6 +794,12 @@ header {
   border-color: var(--twitterx-color);
 }
 
+[data-ctr-btn] .instagram.outline {
+  border-image: var(--instagram-border-color);
+  border-image-slice: 1;
+  color: var(--instagram-default-color);
+}
+
 [data-ctr-btn] .submit:not(.outline) {
   border-color: var(--point-color);
   background-color: var(--point-color);
@@ -809,6 +825,12 @@ header {
   background-color: var(--twitterx-color);
 }
 
+[data-ctr-btn] .instagram:not(.outline) {
+  border-image: var(--instagram-border-color);
+  border-image-slice: 1;
+  background: var(--instagram-background-color);
+}
+
 [data-ctr-btn] .submit.outline:hover {
   color: #fff;
   background-color: var(--point-color);
@@ -832,6 +854,11 @@ header {
 [data-ctr-btn] .twitterx.outline:hover {
   color: #fff;
   background-color: var(--twitterx-color);
+}
+
+[data-ctr-btn] .instagram.outline:hover {
+  color: #fff;
+  background: var(--instagram-background-color);
 }
 
 @media (max-width: 1024px) {
@@ -1750,12 +1777,15 @@ header {
 /*=========================================================
 11. Prism.js
 =========================================================*/
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
 
 pre,
 pre * {
   font-size: 12px !important;
   letter-spacing: 0;
 }
+
 code[class*="language-"],
 pre[class*="language-"] {
   color: #000;
@@ -1798,8 +1828,8 @@ pre[class*="language-"]::selection {
   }
 }
 pre[class*="language-"] {
-  /* padding: 1em;
-	margin: 0.5em 0; */
+  padding: 1em;
+  margin: 0.5em 0;
   overflow: auto;
 }
 :not(pre) > code[class*="language-"],
@@ -1820,7 +1850,7 @@ pre[class*="language-"] {
 .token.punctuation {
   color: #999;
 }
-.namespace {
+.token.namespace {
   opacity: 0.7;
 }
 .token.boolean,
